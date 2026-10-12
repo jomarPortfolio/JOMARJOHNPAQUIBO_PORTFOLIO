@@ -1,483 +1,2570 @@
+<PARSED TEXT FOR PAGE: 1 / 51>
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JOMAR.DEV | Portfolio</title>
+
+<meta name="theme-color" content="#030912">
+
+<title>Engineer. JOMAR JOHN PAQUIBO | Portfolio</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:#07111f;color:#fff;min-height:100vh}
-nav{position:fixed;top:0;left:0;width:100%;height:70px;background:#081525;display:flex;align-items:center;justify-content:space-between;padding:0 7%;z-index:1000;border-bottom:1px solid rgba(0,217,255,.15)}
-.logo{color:#00d9ff;font-size:25px;font-weight:bold;letter-spacing:1px}
-nav ul{display:flex;list-style:none;gap:28px}
-nav ul li a{text-decoration:none;color:#fff;font-size:19px;font-weight:700;text-transform:uppercase;transition:.3s;cursor:pointer}
-nav ul li a:hover,nav ul li a.active{color:#00d9ff}
-main{padding-top:70px;min-height:100vh}
-.page{display:none;min-height:calc(100vh - 70px);padding:80px 7%;animation:fadePage .45s ease}
-.page.active{display:block}
-#home{display:flex;align-items:center;justify-content:center;text-align:center}
-.home-content{width:100%;max-width:900px;margin:auto}
-.profile-wrapper{width:240px;height:240px;margin:0 auto 25px;overflow:visible;border-radius:0;border:none;box-shadow:none}
-.profile-wrapper img{width:100%;height:100%;object-fit:cover}
-.home-content h1{font-size:44px;line-height:1.2;margin-bottom:15px}
-.home-content h1 span{color:#00d9ff}
-.home-content h2{color:#00d9ff;font-size:23px;margin-bottom:20px}
-.home-content p{max-width:750px;margin:auto;line-height:1.8;color:#c9d4df;font-size:17px}
-.education-card{max-width:700px;margin:35px auto 0;padding:25px;background:#0d1b2d;border:1px solid rgba(0,217,255,.25);border-radius:15px}
-.education-card h3{color:#00d9ff;margin-bottom:12px;font-size:21px}
-.education-card p{margin:7px 0}
-.resume-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:25px}
-.resume-button{display:inline-block;padding:13px 22px;background:#00d9ff;color:#07111f;border:none;border-radius:25px;font-size:16px;font-weight:bold;text-decoration:none;cursor:pointer;transition:.3s}
-.resume-button:hover{background:#fff;transform:translateY(-3px)}
-.page-title{text-align:center;color:#00d9ff;font-size:36px;margin-bottom:40px}
-.about-content{max-width:850px;margin:auto;background:#0d1b2d;padding:35px;border-radius:18px;border:1px solid rgba(0,217,255,.2)}
-.about-content p{color:#c9d4df;line-height:1.9;font-size:17px;margin-bottom:20px}
-.about-content p:last-child{margin-bottom:0}
-.skills-container{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.skill-card{background:#0d1b2d;border:1px solid rgba(0,217,255,.2);border-radius:18px;padding:30px 20px;text-align:center;transition:.3s}
-.skill-card:hover{transform:translateY(-7px);border-color:#00d9ff;box-shadow:0 0 25px rgba(0,217,255,.15)}
-.skill-card img{width:75px;height:75px;object-fit:contain;margin-bottom:18px}
-.skill-card h3{color:#fff;font-size:19px;margin-bottom:10px}
-.skill-card p{color:#c9d4df;font-size:14px;line-height:1.6;margin-top:10px}
-.skill-level{margin-top:18px;text-align:left}
-.skill-level-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;font-size:13px;font-weight:bold}
-.skill-level-text{color:#c9d4df}
-.skill-percent{color:#00d9ff}
-.skill-progress{width:100%;height:9px;background:#172638;border-radius:20px;overflow:hidden}
-.skill-progress-fill{height:100%;background:#00d9ff;border-radius:20px;animation:skillFill 1.2s ease-out}
-@keyframes skillFill{from{width:0}}
-.projects-container{max-width:1000px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.project-card{background:#0d1b2d;padding:30px;border-radius:18px;border:1px solid rgba(0,217,255,.2);transition:.3s}
-.project-card:hover{transform:translateY(-7px);border-color:#00d9ff;box-shadow:0 0 25px rgba(0,217,255,.15)}
-.project-card h3{color:#00d9ff;font-size:22px;margin-bottom:15px}
-.project-card p{color:#c9d4df;line-height:1.7}
-.contact-container{max-width:700px;margin:auto;background:#0d1b2d;padding:40px;border-radius:18px;border:1px solid rgba(0,217,255,.2);text-align:center}
-.contact-container p{font-size:18px;margin:20px 0;color:#c9d4df}
-.contact-container strong{color:#00d9ff}
-.back-button{position:fixed;left:25px;bottom:25px;padding:13px 24px;background:#00d9ff;color:#07111f;border:none;border-radius:25px;font-size:17px;font-weight:bold;cursor:pointer;z-index:999;box-shadow:0 0 20px rgba(0,217,255,.25);transition:.3s}
-.back-button:hover{transform:translateY(-3px);background:#fff}
-footer{text-align:center;padding:25px;background:#081525;color:#8ea0b3;font-size:14px}
-@keyframes fadePage{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:900px){nav{padding:0 4%}nav ul{gap:18px}.skills-container,.projects-container{grid-template-columns:repeat(2,1fr)}.home-content h1{font-size:38px}}
-@media(max-width:650px){nav{height:auto;min-height:70px;padding:15px 4%;flex-direction:column;gap:12px}.logo{font-size:22px}nav ul{gap:14px;flex-wrap:wrap;justify-content:center}nav ul li a{font-size:15px;font-weight:700;text-transform:uppercase}main{padding-top:105px}.page{padding:55px 5%;min-height:calc(100vh - 105px)}.profile-wrapper{width:200px;height:200px;margin-bottom:20px}.home-content h1{font-size:30px}.home-content h2{font-size:18px}.home-content p{font-size:15px}.page-title{font-size:30px;margin-bottom:25px}.skills-container,.projects-container{grid-template-columns:1fr}.skill-card{padding:25px 18px}.skill-card p{font-size:14px}.about-content,.contact-container{padding:25px 20px}.about-content p{font-size:15px}.back-button{left:15px;bottom:15px;font-size:15px;padding:11px 19px}}
-@media(max-width:400px){nav ul{gap:10px}nav ul li a{font-size:13px}.profile-wrapper{width:180px;height:180px}.home-content h1{font-size:27px}}
 
-/* Theme switch: dark is the default; button offers the opposite mode */
-.theme-toggle{padding:9px 13px;border:1px solid #00d9ff;border-radius:22px;background:transparent;color:#00d9ff;font-weight:bold;cursor:pointer;white-space:nowrap;transition:.25s}
-.theme-toggle:hover{background:#00d9ff;color:#07111f}
-body.light-mode{background:#f3f7fc;color:#102238}
-body.light-mode nav,body.light-mode footer{background:#fff}
-body.light-mode nav{border-bottom-color:rgba(0,100,180,.18);box-shadow:0 2px 12px rgba(15,35,60,.06)}
-body.light-mode nav ul li a{color:#102238}
-body.light-mode nav ul li a:hover,body.light-mode nav ul li a.active{color:#007eaa}
-body.light-mode .home-content p,body.light-mode .about-content p,body.light-mode .skill-card p,body.light-mode .project-card p,body.light-mode .contact-container p{color:#43546a}
-body.light-mode .education-card,body.light-mode .about-content,body.light-mode .skill-card,body.light-mode .project-card,body.light-mode .contact-container{background:#fff;box-shadow:0 8px 24px rgba(15,35,60,.06)}
-body.light-mode .skill-card h3{color:#102238}
-body.light-mode .skill-level-text{color:#43546a}
-body.light-mode .skill-progress{background:#dce5ef}
-body.light-mode footer{color:#58697c}
-body.light-mode .resume-button,body.light-mode .back-button{color:#fff;background:#007eaa}
-body.light-mode .resume-button:hover,body.light-mode .back-button:hover{background:#005f83}
-@media(max-width:650px){.theme-toggle{font-size:13px;padding:7px 10px}}
+:root {
 
-/* ===== SMOOTH PORTFOLIO ANIMATIONS ===== */
-.page.active{animation:pageEnter .65s ease both}
-@keyframes pageEnter{
- from{opacity:0;transform:translateY(22px)}
- to{opacity:1;transform:translateY(0)}
-}
-.profile-wrapper{
- animation:profileFloat 4s ease-in-out infinite;
-}
-.profile-wrapper img{transition:transform .5s ease}
-.profile-wrapper:hover img{transform:scale(1.08)}
-@keyframes profileFloat{
- 0%,100%{transform:translateY(0)}
- 50%{transform:translateY(-10px)}
-}
-@keyframes profileGlow{
- 0%,100%{box-shadow:0 0 18px rgba(0,217,255,.25)}
- 50%{box-shadow:0 0 35px rgba(0,217,255,.65)}
-}
-.home-content h1{animation:textEnter .8s ease both}
-.home-content h2{animation:textEnter .8s ease .15s both}
-.home-content>p{animation:textEnter .8s ease .25s both}
-@keyframes textEnter{
- from{opacity:0;transform:translateY(18px)}
- to{opacity:1;transform:translateY(0)}
-}
-nav ul li a{position:relative}
-nav ul li a::after{
- content:"";position:absolute;left:0;bottom:-7px;width:0;height:2px;
- background:#00d9ff;transition:width .3s ease
-}
-nav ul li a:hover::after,nav ul li a.active::after{width:100%}
-.education-card,.about-content,.contact-container{
- transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease
-}
-.education-card:hover,.about-content:hover,.contact-container:hover{
- transform:translateY(-4px);border-color:#00d9ff;
- box-shadow:0 10px 28px rgba(0,217,255,.12)
-}
-.skill-card{animation:cardEnter .65s ease both}
-.skill-card:nth-child(2){animation-delay:.08s}
-.skill-card:nth-child(3){animation-delay:.16s}
-.skill-card:nth-child(4){animation-delay:.24s}
-.skill-card:nth-child(5){animation-delay:.32s}
-.skill-card:nth-child(6){animation-delay:.40s}
-.project-card{animation:cardEnter .7s ease both}
-.project-card:nth-child(2){animation-delay:.12s}
-.project-card:nth-child(3){animation-delay:.24s}
-@keyframes cardEnter{
- from{opacity:0;transform:translateY(25px) scale(.97)}
- to{opacity:1;transform:translateY(0) scale(1)}
-}
-.skill-progress-fill{transform-origin:left;animation:progressEnter 1.4s cubic-bezier(.2,.7,.2,1) both}
-@keyframes progressEnter{
- from{transform:scaleX(0)}
- to{transform:scaleX(1)}
-}
-.resume-button,.back-button,.theme-toggle{
- transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease
-}
-.resume-button:hover,.back-button:hover,.theme-toggle:hover{
- transform:translateY(-3px);box-shadow:0 7px 20px rgba(0,217,255,.22)
-}
-.resume-button:active,.back-button:active,.theme-toggle:active{transform:scale(.96)}
-.logo{transition:text-shadow .3s ease}
-.logo:hover{text-shadow:0 0 16px rgba(0,217,255,.7)}
-@media(prefers-reduced-motion:reduce){
- *,*::before,*::after{
-  animation-duration:.01ms!important;animation-iteration-count:1!important;
-  scroll-behavior:auto!important;transition-duration:.01ms!important
- }
+    --bg: #030912;
+
+    --nav: #05101e;
+
+    --card: #08172b;
+
+    --text: #ffffff;
+
+    --muted: #a0b3c5;
+
+    --accent: #ffd166;
+
+    --accent-data: #22e6ff;
+
+    --border: rgba(34, 230, 255, 0.30);
+
+    --bar: #102641;
+
 }
 
+*{
 
-/* Project add-on: follows the existing portfolio theme */
-.project-tools{max-width:1000px;margin:0 auto 25px;text-align:center}
-.project-form{display:none;max-width:700px;margin:0 auto 30px;padding:25px;background:#0d1b2d;border:1px solid rgba(0,217,255,.25);border-radius:15px;text-align:left}
-.project-form.open{display:grid;gap:14px}
-.project-form label{display:block;margin-bottom:6px;color:#c9d4df;font-size:14px;font-weight:bold}
-.project-form input,.project-form textarea{width:100%;padding:12px;border:1px solid rgba(0,217,255,.25);border-radius:9px;background:#07111f;color:#fff;font:inherit}
-.project-form textarea{min-height:90px;resize:vertical}
-.project-form .form-actions{display:flex;gap:10px;flex-wrap:wrap}
-.project-form-note{font-size:12px;color:#8ea0b3;line-height:1.5}
-.project-image{width:100%;height:180px;object-fit:cover;border-radius:10px;margin-bottom:18px;border:1px solid rgba(0,217,255,.15)}
-.project-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-.project-link{display:inline-block;padding:9px 15px;border-radius:20px;background:#00d9ff;color:#07111f;text-decoration:none;font-size:13px;font-weight:bold}
-.project-delete{padding:9px 13px;border-radius:20px;border:1px solid #ff647c;background:transparent;color:#ff8497;font-weight:bold;cursor:pointer}
-body.light-mode .project-form{background:#fff;box-shadow:0 8px 24px rgba(15,35,60,.06)}
-body.light-mode .project-form label{color:#43546a}
-body.light-mode .project-form input,body.light-mode .project-form textarea{background:#f3f7fc;color:#102238;border-color:rgba(0,100,180,.2)}
-@media(max-width:650px){.project-form{padding:20px 16px}.project-image{height:160px}}
+    margin: 0;
 
+    padding: 0;
+
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+<PARSED TEXT FOR PAGE: 2 / 51>
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: var(--bg);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    transition: background .25s, color .25s;
+
+    background-image: url('1000014599.jpg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    background-repeat: no-repeat;
+
+}
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+  background: linear-gradient(115deg, rgba(2, 13, 27, 0.78), rgba(0, 43, 61, 0.58), rgba(3, 9, 18,
+0.72));
+
+    z-index: -1;
+
+    transition: background-color .25s;
+
+}
+
+body.light-mode {
+
+    --bg: #f0f5fa;
+
+    --nav: #ffffff;
+<PARSED TEXT FOR PAGE: 3 / 51>
+    --card: #ffffff;
+
+    --text: #05101e;
+
+    --muted: #50667f;
+
+    --accent: #e6a000;
+
+    --accent-data: #00acc1;
+
+    --border: rgba(230, 160, 0, 0.25);
+
+    --bar: #dce6ef;
+
+}
+
+body.light-mode::before {
+
+    background: rgba(240, 245, 250, 0.91);
+
+}
+
+button, a {
+
+    -webkit-tap-highlight-color: transparent;
+
+}
+
+button {
+
+    font-family: inherit;
+
+}
+
+button:focus-visible,
+
+a:focus-visible,
+
+.project-card:focus-visible,
+
+.modal-thumb:focus-visible {
+
+    outline: 3px solid var(--accent);
+
+    outline-offset: 4px;
+
+}
+
+nav {
+
+    position: fixed;
+<PARSED TEXT FOR PAGE: 4 / 51>
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    min-height: 70px;
+
+    background: var(--nav);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 12px 7%;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid var(--border);
+
+    transition: background .25s;
+
+    backdrop-filter: blur(5px);
+
+    -webkit-backdrop-filter: blur(5px);
+
+}
+
+.logo {
+
+    color: var(--accent);
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    white-space: nowrap;
+
+}
+
+nav ul {
+
+    display: flex;
+
+    list-style: none;
+<PARSED TEXT FOR PAGE: 5 / 51>
+    gap: 22px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+}
+
+nav ul li a {
+
+    text-decoration: none;
+
+    color: var(--text);
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    transition: color .2s;
+
+}
+
+nav ul li a:hover,
+
+nav ul li a.active {
+
+    color: var(--accent);
+
+}
+
+.theme-toggle {
+
+    padding: 9px 13px;
+
+    border: 1px solid var(--accent);
+
+    border-radius: 22px;
+
+    background: transparent;
+
+    color: var(--accent);
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+}
+<PARSED TEXT FOR PAGE: 6 / 51>
+main {
+
+    padding-top: 70px;
+
+    min-height: 100vh;
+
+    position: relative;
+
+}
+
+.page {
+
+    display: none;
+
+    min-height: calc(100vh - 70px);
+
+    padding: 65px 7%;
+
+    animation: pageIn .3s ease;
+
+}
+
+.page.active {
+
+    display: block;
+
+}
+
+#home.active {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+@keyframes pageIn {
+
+    from { opacity: 0; transform: translateY(8px); }
+
+    to { opacity: 1; transform: translateY(0); }
+
+}
+
+.home-content {
+
+    width: 100%;
+<PARSED TEXT FOR PAGE: 7 / 51>
+    max-width: 900px;
+
+    margin: auto;
+
+}
+
+.profile-wrapper {
+
+    width: 240px;
+
+    height: 240px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 4px solid var(--accent);
+
+    box-shadow: 0 0 20px rgba(255, 179, 0, 0.3);
+
+}
+
+.profile-wrapper img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+.home-content h1 {
+
+    font-size: clamp(30px, 5vw, 44px);
+
+    line-height: 1.2;
+
+    margin-bottom: 15px;
+
+}
+
+.home-content h1 span {
+
+    color: var(--accent);
+
+}
+
+.home-content h2 {
+<PARSED TEXT FOR PAGE: 8 / 51>
+    color: var(--accent-data);
+
+    font-size: 23px;
+
+    line-height: 1.5;
+
+    margin-bottom: 20px;
+
+}
+
+.home-content p {
+
+    max-width: 750px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    color: var(--muted);
+
+    font-size: 17px;
+
+}
+
+.education-card {
+
+    max-width: 700px;
+
+    margin: 35px auto 0;
+
+    padding: 25px;
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+}
+
+.education-card h3 {
+
+    color: var(--accent);
+
+    margin-bottom: 12px;
+
+    font-size: 21px;
+
+}
+
+.education-card p {
+<PARSED TEXT FOR PAGE: 9 / 51>
+    margin: 7px 0;
+
+}
+
+.resume-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+
+}
+
+.resume-button {
+
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    background: var(--accent);
+
+    color: #030912;
+
+    border: none;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.resume-button:hover {
+
+    background: var(--text);
+
+    color: var(--bg);
+
+    transform: translateY(-3px);
+<PARSED TEXT FOR PAGE: 10 / 51>
+}
+
+.page-title {
+
+    text-align: center;
+
+    color: var(--accent);
+
+    font-size: 36px;
+
+    margin-bottom: 40px;
+
+}
+
+.about-content {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    background: var(--card);
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--border);
+
+}
+
+.about-content p {
+
+    color: var(--muted);
+
+    line-height: 1.9;
+
+    font-size: 17px;
+
+    margin-bottom: 20px;
+
+}
+
+.about-content p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+.skills-container,
+
+.projects-container {
+<PARSED TEXT FOR PAGE: 11 / 51>
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 25px;
+
+}
+
+.skill-card,
+
+.project-card {
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    padding: 30px 20px;
+
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+
+}
+
+.skill-card {
+
+    text-align: center;
+
+}
+
+.skill-card:hover,
+
+.project-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: var(--accent-data);
+
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.15);
+
+}
+
+.skill-card img {
+
+    width: 75px;
+
+    height: 75px;
+<PARSED TEXT FOR PAGE: 12 / 51>
+    object-fit: contain;
+
+    margin-bottom: 18px;
+
+}
+
+.skill-card h3 {
+
+    color: var(--text);
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+
+}
+
+.skill-card p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-top: 10px;
+
+}
+
+.skill-level {
+
+    margin-top: 18px;
+
+    text-align: left;
+
+}
+
+.skill-level-info {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+<PARSED TEXT FOR PAGE: 13 / 51>
+.skill-level-text {
+
+    color: var(--muted);
+
+}
+
+.skill-percent {
+
+    color: var(--accent-data);
+
+}
+
+.skill-progress {
+
+    width: 100%;
+
+    height: 9px;
+
+    background: var(--bar);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+.skill-progress-fill {
+
+    height: 100%;
+
+    background: var(--accent-data);
+
+    border-radius: 20px;
+
+}
+
+.project-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    cursor: pointer;
+
+    min-width: 0;
+
+}
+<PARSED TEXT FOR PAGE: 14 / 51>
+.project-card h3 {
+
+    color: var(--accent);
+
+    font-size: 21px;
+
+    line-height: 1.4;
+
+    margin-bottom: 15px;
+
+}
+
+.project-card p {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+}
+
+.project-btn {
+
+    display: inline-block;
+
+    padding: 10px 14px;
+
+    background: transparent;
+
+    color: var(--accent-data);
+
+    border: 1px solid var(--accent-data);
+
+    border-radius: 18px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    transition: .2s;
+
+}
+
+.project-card:hover .project-btn {
+
+    background: var(--accent-data);
+
+    color: #030912;
+
+}
+<PARSED TEXT FOR PAGE: 15 / 51>
+/* Project details modal */
+
+.modal-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(3,10,20,.9);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 2000;
+
+    padding: 16px;
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+}
+
+.modal-overlay.active {
+
+    display: flex;
+
+}
+
+.modal-content {
+
+    background: var(--card);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    max-width: 700px;
+
+    width: 100%;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+<PARSED TEXT FOR PAGE: 16 / 51>
+    position: relative;
+
+    animation: pageIn .2s ease;
+
+}
+
+.modal-close {
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 15px;
+
+    width: 40px;
+
+    height: 40px;
+
+    background: transparent;
+
+    border: none;
+
+    color: var(--accent);
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+.modal-title {
+
+    color: var(--accent);
+
+    font-size: 24px;
+
+    line-height: 1.4;
+
+    padding-right: 35px;
+
+    margin-bottom: 10px;
+
+}
+
+.modal-desc {
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+<PARSED TEXT FOR PAGE: 17 / 51>
+    margin-bottom: 20px;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+
+}
+
+.modal-link-btn {
+
+    display: inline-block;
+
+    padding: 10px 20px;
+
+    background: var(--accent);
+
+    color: #030912;
+
+    border-radius: 20px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    margin-bottom: 20px;
+
+}
+
+.modal-link-btn:hover {
+
+    opacity: .8;
+
+}
+
+.modal-preview-container {
+
+    width: 100%;
+
+    height: 300px;
+
+    margin-bottom: 15px;
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: var(--bg);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+<PARSED TEXT FOR PAGE: 18 / 51>
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.modal-preview-container img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+}
+
+.modal-gallery {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 10px;
+
+}
+
+.modal-thumb {
+
+    width: 100%;
+
+    height: 75px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    border: 2px solid var(--border);
+
+    cursor: pointer;
+
+    transition: border-color .2s, transform .2s;
+
+}
+
+.modal-thumb:hover {
+
+    transform: scale(1.04);
+
+}
+
+.modal-thumb.active-thumb {
+<PARSED TEXT FOR PAGE: 19 / 51>
+    border-color: var(--accent-data);
+
+}
+
+.gallery-counter {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    text-align: center;
+
+    margin-top: 12px;
+
+}
+
+/* Contact */
+
+.contact-container {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    background: var(--card);
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--border);
+
+    text-align: center;
+
+}
+
+.contact-container p {
+
+    font-size: 18px;
+
+    margin: 20px 0;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+    overflow-wrap: anywhere;
+
+}
+
+.contact-container strong {
+<PARSED TEXT FOR PAGE: 20 / 51>
+    color: var(--accent);
+
+}
+
+.contact-container a {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+}
+
+.contact-container a:hover {
+
+    color: var(--accent-data);
+
+    text-decoration: underline;
+
+}
+
+.back-button {
+
+    position: fixed;
+
+    left: 25px;
+
+    bottom: 25px;
+
+    padding: 13px 24px;
+
+    background: var(--accent);
+
+    color: #030912;
+
+    border: none;
+
+    border-radius: 25px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 999;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,.15);
+
+}
+
+.back-button:hover {
+<PARSED TEXT FOR PAGE: 21 / 51>
+    transform: translateY(-2px);
+
+}
+
+footer {
+
+    text-align: center;
+
+    padding: 25px;
+
+    background: var(--nav);
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    border-top: 1px solid var(--border);
+
+    position: relative;
+
+}
+
+/* Responsive layout */
+
+@media (max-width: 1050px) {
+
+    nav {
+
+        padding: 12px 4%;
+
+        gap: 12px;
+
+    }
+
+    nav ul {
+
+        gap: 14px;
+
+    }
+
+    nav ul li a {
+
+        font-size: 15px;
+
+    }
+
+    .skills-container,
+
+    .projects-container {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+<PARSED TEXT FOR PAGE: 22 / 51>
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    nav {
+
+        position: sticky;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 14px 10px;
+
+    }
+
+    nav ul {
+
+        gap: 12px 16px;
+
+    }
+
+    nav ul li a {
+
+        font-size: 13px;
+
+    }
+
+    main {
+
+        padding-top: 0;
+
+    }
+
+    .page {
+
+        min-height: calc(100vh - 150px);
+
+        padding: 45px 5%;
+
+    }
+
+    #home.active {
+
+        min-height: calc(100vh - 150px);
+
+    }
+
+    .home-content h2 {
+<PARSED TEXT FOR PAGE: 23 / 51>
+    font-size: 19px;
+
+}
+
+.profile-wrapper {
+
+    width: 190px;
+
+    height: 190px;
+
+}
+
+.skills-container,
+
+.projects-container {
+
+    grid-template-columns: 1fr;
+
+}
+
+.about-content,
+
+.contact-container {
+
+    padding: 25px 20px;
+
+}
+
+.modal-content {
+
+    padding: 24px 16px;
+
+}
+
+.modal-preview-container {
+
+    height: 240px;
+
+}
+
+.modal-gallery {
+
+    gap: 6px;
+
+}
+
+.modal-thumb {
+
+    height: 58px;
+
+}
+<PARSED TEXT FOR PAGE: 24 / 51>
+    .back-button {
+
+        left: 12px;
+
+        bottom: 12px;
+
+        padding: 11px 18px;
+
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *, *::before, *::after {
+
+        scroll-behavior: auto !important;
+
+        animation-duration: .01ms !important;
+
+        transition-duration: .01ms !important;
+
+    }
+
+}
+
+
+
+/* CYBER-TECH THEME + EXTRA MOTION — layout preserved */
+
+:root { --accent: #ffd166; --accent-data: #22e6ff; }
+
+body::before { background-image: radial-gradient(circle at 15% 20%, rgba(0,229,255,.12),
+transparent 34%), linear-gradient(115deg, rgba(2,13,27,.78), rgba(0,43,61,.58),
+rgba(3,9,18,.72)); }
+
+body.light-mode::before { background: rgba(240,245,250,.91); }
+
+.skill-card, .project-card, .education-card, .about-content, .contact-container { backdrop-filter:
+blur(8px); -webkit-backdrop-filter: blur(8px); }
+
+.skill-card, .project-card { position: relative; isolation: isolate; }
+
+.skill-card::before, .project-card::before { content: ""; position: absolute; inset: 0; border-radius:
+inherit; padding: 1px; background: linear-gradient(135deg, transparent, rgba(34,230,255,.55),
+rgba(255,209,102,.4), transparent); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-
+gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; pointer-
+events: none; transition: opacity .35s ease; }
+<PARSED TEXT FOR PAGE: 25 / 51>
+.skill-card:hover::before, .project-card:hover::before { opacity: 1; }
+
+::selection { background: rgba(34,230,255,.35); color: white; }
+
+
+
+html { scroll-behavior: smooth; }
+
+body { background-size: cover; animation: ambientDrift 24s ease-in-out infinite alternate; }
+
+@keyframes ambientDrift {
+
+    0% { background-position: 48% 48%; }
+
+    100% { background-position: 52% 52%; }
+
+}
+
+nav { animation: navDrop .7s cubic-bezier(.2,.8,.2,1) both; }
+
+@keyframes navDrop {
+
+    from { opacity: 0; transform: translateY(-18px); }
+
+    to { opacity: 1; transform: translateY(0); }
+
+}
+
+nav ul li a { position: relative; }
+
+nav ul li a::after {
+
+    content: ""; position: absolute; left: 0; bottom: -7px; width: 100%; height: 2px;
+
+    background: var(--accent-data); transform: scaleX(0); transform-origin: right;
+
+    transition: transform .28s ease;
+
+}
+
+nav ul li a:hover::after, nav ul li a.active::after { transform: scaleX(1); transform-origin: left; }
+
+.logo { animation: logoGlow 3.5s ease-in-out infinite; }
+
+@keyframes logoGlow {
+
+    0%,100% { text-shadow: 0 0 0 rgba(255,179,0,0); }
+
+    50% { text-shadow: 0 0 14px rgba(255,179,0,.38); }
+
+}
+<PARSED TEXT FOR PAGE: 26 / 51>
+.profile-wrapper {
+
+    animation: profileFloat 5s ease-in-out infinite, profileAppear .9s cubic-bezier(.2,.8,.2,1) both;
+
+    will-change: transform;
+
+}
+
+.profile-wrapper img { transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .5s ease; }
+
+.profile-wrapper:hover img { transform: scale(1.08) rotate(1deg); filter: saturate(1.12); }
+
+@keyframes profileFloat { 0%,100% { translate: 0 0; } 50% { translate: 0 -9px; } }
+
+@keyframes profileAppear { from { opacity: 0; scale: .86; } to { opacity: 1; scale: 1; } }
+
+.home-content h1 { animation: riseIn .8s .12s both; }
+
+.home-content h2 { animation: riseIn .8s .22s both; }
+
+.home-content > p { animation: riseIn .8s .32s both; }
+
+.education-card { animation: riseIn .8s .4s both; transition: transform .3s ease, box-shadow .3s
+ease; }
+
+.education-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px
+rgba(0,229,255,.12); }
+
+.resume-button, .theme-toggle, .back-button, .modal-link-btn {
+
+ position: relative; overflow: hidden; transition: transform .25s ease, box-shadow .25s ease,
+background .25s ease;
+
+}
+
+.resume-button:hover, .theme-toggle:hover, .back-button:hover, .modal-link-btn:hover {
+
+    transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,229,255,.18);
+
+}
+
+.page-title { animation: titleReveal .65s cubic-bezier(.2,.8,.2,1) both; }
+
+@keyframes titleReveal {
+
+    from { opacity: 0; transform: translateY(18px); letter-spacing: 5px; }
+
+    to { opacity: 1; transform: translateY(0); letter-spacing: normal; }
+
+}
+<PARSED TEXT FOR PAGE: 27 / 51>
+.about-content { animation: riseIn .65s .12s both; transition: transform .3s ease, box-shadow .3s
+ease; }
+
+.about-content:hover { transform: translateY(-3px); box-shadow: 0 12px 35px
+rgba(0,229,255,.09); }
+
+.skill-card, .project-card { animation: cardEnter .65s both; }
+
+.skill-card:nth-child(2), .project-card:nth-child(2) { animation-delay: .07s; }
+
+.skill-card:nth-child(3), .project-card:nth-child(3) { animation-delay: .14s; }
+
+.skill-card:nth-child(4), .project-card:nth-child(4) { animation-delay: .21s; }
+
+.skill-card:nth-child(5), .project-card:nth-child(5) { animation-delay: .28s; }
+
+.skill-card:nth-child(6), .project-card:nth-child(6) { animation-delay: .35s; }
+
+@keyframes cardEnter { from { opacity: 0; transform: translateY(22px) scale(.985); } to { opacity:
+1; transform: translateY(0) scale(1); } }
+
+.skill-card img { transition: transform .4s cubic-bezier(.2,.8,.2,1), filter .4s ease; }
+
+.skill-card:hover img { transform: translateY(-5px) rotate(-3deg) scale(1.08); filter: drop-
+shadow(0 5px 10px rgba(0,229,255,.22)); }
+
+.skill-progress-fill { width: 0; transition: width 1.25s cubic-bezier(.2,.8,.2,1); position: relative; }
+
+.skill-progress-fill::after {
+
+    content: ""; position: absolute; inset: 0;
+
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,.4), transparent);
+
+    transform: translateX(-100%); animation: barShine 2.5s 1s ease-in-out infinite;
+
+}
+
+@keyframes barShine { 60%,100% { transform: translateX(100%); } }
+
+.project-card { transform-style: preserve-3d; }
+
+.project-card:hover { transform: translateY(-8px) scale(1.015); }
+
+.project-btn { transition: background .25s ease, color .25s ease, letter-spacing .25s ease; }
+
+.project-card:hover .project-btn { letter-spacing: .4px; }
+
+.modal-content { animation: modalPop .35s cubic-bezier(.2,.8,.2,1) both; }
+<PARSED TEXT FOR PAGE: 28 / 51>
+@keyframes modalPop { from { opacity: 0; transform: translateY(18px) scale(.96); } to { opacity:
+1; transform: translateY(0) scale(1); } }
+
+.modal-preview-container img { animation: imageFade .35s ease both; }
+
+@keyframes imageFade { from { opacity: .45; transform: scale(.985); } to { opacity: 1; transform:
+scale(1); } }
+
+.modal-thumb { transition: border-color .2s, transform .25s ease, box-shadow .25s ease; }
+
+.modal-thumb:hover, .modal-thumb.active-thumb { box-shadow: 0 0 0 2px rgba(0,229,255,.1); }
+
+.contact-container { animation: riseIn .65s .1s both; }
+
+.contact-container p { transition: transform .25s ease; }
+
+.contact-container p:hover { transform: translateX(4px); }
+
+footer { animation: fadeIn .8s ease both; }
+
+@keyframes riseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform:
+translateY(0); } }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+#motionProgress {
+
+    position: fixed; top: 0; left: 0; width: 0; height: 3px; z-index: 3000;
+
+ background: linear-gradient(90deg, var(--accent), var(--accent-data)); box-shadow: 0 0 10px
+var(--accent-data);
+
+    pointer-events: none;
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    body, nav, .logo, .profile-wrapper, .home-content h1, .home-content h2,
+
+    .home-content > p, .education-card, .page-title, .about-content, .skill-card,
+
+    .project-card, .contact-container, footer { animation: none !important; }
+
+    .skill-progress-fill { transition: none !important; }
+
+}
+<PARSED TEXT FOR PAGE: 29 / 51>
 </style>
+
 </head>
+
 <body>
-<nav>
-<div class="logo">JOMAR.DEV</div>
-<ul>
-<li><a href="#home" class="nav-link active" data-page="home">HOME</a></li>
-<li><a href="#about" class="nav-link" data-page="about">ABOUT</a></li>
-<li><a href="#skills" class="nav-link" data-page="skills">MY SKILLS</a></li>
-<li><a href="#projects" class="nav-link" data-page="projects">PROJECTS</a></li>
-<li><a href="#contact" class="nav-link" data-page="contact">CONTACT</a></li>
-</ul>
-<button type="button" id="themeToggle" class="theme-toggle" aria-label="Switch to light mode">☀️ Light Mode</button>
+
+<div id="motionProgress" aria-hidden="true"></div>
+
+<nav aria-label="Main navigation">
+
+  <div class="logo">JOMAR JOHN PAQUIBO.DEV</div>
+
+  <ul>
+
+    <li><a href="#home" class="nav-link active" data-page="home" aria-
+current="page">HOME</a></li>
+
+    <li><a href="#about" class="nav-link" data-page="about">ABOUT</a></li>
+
+    <li><a href="#skills" class="nav-link" data-page="skills">MY SKILLS</a></li>
+
+    <li><a href="#projects" class="nav-link" data-page="projects">PROJECTS</a></li>
+
+    <li><a href="#contact" class="nav-link" data-page="contact">CONTACT</a></li>
+
+  </ul>
+
+  <button type="button" id="themeToggle" class="theme-toggle">
+
+    ☀️ Light Mode
+  </button>
+
 </nav>
+
 <main>
+
+<!-- HOME -->
+
 <section id="home" class="page active">
-<div class="home-content">
-<div class="profile-wrapper">
-<img src="https://uploads.onecompiler.io/442nn5q5f/1790990293076/1000014132.png" alt="Jomar John M. Paquibo">
-</div>
-<h1>Hi, I'm <span>Jomar John M. Paquibo</span></h1>
-<h2>Web/Mobile Developer / Hardware / BS Computer Engineering Student</h2>
-<p>I’m a 4th-year Computer Engineering student at ICCT Colleges. I enjoy building web and mobile apps and working on hardware projects.</p>
-<div class="education-card">
-<h3>Education</h3>
-<p><strong>School:</strong> ICCT Colleges</p>
-<p><strong>Year Level:</strong> 4th Year</p>
-<p><strong>Course:</strong> BS Computer Engineering</p>
-</div>
-<div class="resume-actions">
-<a class="resume-button" href="Jomar_John_Paquibo_Resume.pdf" download="Jomar_John_Paquibo_Resume.pdf">DOWNLOAD PORTFOLIO</a>
-</div>
-</div>
+
+  <div class="home-content">
+
+    <div class="profile-wrapper">
+
+         <img
+
+           src="https://uploads.onecompiler.io/442nn5q5f/1790990293076/1000014132.png"
+
+           alt="Jomar John M. Paquibo"
+<PARSED TEXT FOR PAGE: 30 / 51>
+      >
+
+    </div>
+
+    <h1>Hi, I'm <span>Jomar John M. Paquibo</span></h1>
+
+    <h2>Web/Mobile Developer / Hardware / BS Computer Engineering Student</h2>
+
+    <p>
+
+      I’m a 4th-year Computer Engineering student at ICCT Colleges.
+
+      I enjoy building web and mobile apps and working on hardware projects.
+
+    </p>
+
+    <div class="education-card">
+
+      <h3>Education</h3>
+
+      <p><strong>School:</strong> ICCT Colleges</p>
+
+      <p><strong>Year Level:</strong> 4th Year</p>
+
+      <p><strong>Course:</strong> BS Computer Engineering</p>
+
+    </div>
+
+    <div class="resume-actions">
+
+      <a
+
+           class="resume-button"
+
+           href="Jomar_John_Paquibo_Resume.pdf"
+
+           download="Jomar_John_Paquibo_Resume.pdf"
+
+      >DOWNLOAD PORTFOLIO</a>
+
+    </div>
+
+  </div>
+
 </section>
+
+<!-- ABOUT -->
+
 <section id="about" class="page">
-<h2 class="page-title">ABOUT ME</h2>
-<div class="about-content">
-<p>I’m Jomar John M. Paquibo, a 4th-year BS Computer Engineering student at ICCT Colleges.</p>
-<p>I like building websites and mobile apps, connecting them to databases, and figuring out how to make them work well.</p>
-<p>I’m also interested in hardware and Arduino projects, especially turning an idea into a working prototype.</p>
-<p>I’m continuing to improve my coding and engineering skills by working on projects and learning as I go.</p>
-</div>
+
+  <h2 class="page-title">ABOUT ME</h2>
+<PARSED TEXT FOR PAGE: 31 / 51>
+  <div class="about-content">
+
+    <p>
+
+       I’m Jomar John M. Paquibo, a 4th-year BS Computer Engineering
+
+       student at ICCT Colleges.
+
+    </p>
+
+    <p>
+
+       I like building websites and mobile apps, connecting them to
+
+       databases, and figuring out how to make them work well.
+
+    </p>
+
+    <p>
+
+       I’m also interested in hardware and Arduino projects, especially
+
+       turning an idea into a working prototype.
+
+    </p>
+
+    <p>
+
+       I’m continuing to improve my coding and engineering skills by
+
+       working on projects and learning as I go.
+
+    </p>
+
+  </div>
+
 </section>
+
+<!-- SKILLS -->
+
 <section id="skills" class="page">
-<h2 class="page-title">MY SKILLS</h2>
-<div class="skills-container">
-<div class="skill-card">
-<img src="https://uploads.onecompiler.io/442nn5q5f/1791018847932/1000014186.jpg" alt="HTML">
-<h3>HTML</h3><p>I use HTML to organize page content and build the basic structure of a website.</p>
-<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">70%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:70%;"></div></div></div>
-</div>
-<div class="skill-card">
-<img src="https://uploads.onecompiler.io/442nn5q5f/1791019149765/1000014189.jpg" alt="CSS">
-<h3>CSS</h3><p>I use CSS to style pages, arrange layouts, and add responsive details and animations.</p>
-<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">45%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:45%;"></div></div></div>
-</div>
-<div class="skill-card">
-<img src="https://uploads.onecompiler.io/442nn5q5f/1791019144209/1000014183.png" alt="JavaScript">
-<h3>JAVASCRIPT</h3><p>I use JavaScript to handle page interactions and make buttons and other features work.</p>
-<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">55%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:55%;"></div></div></div>
-</div>
-<div class="skill-card">
-<img src="https://uploads.onecompiler.io/442nn5q5f/1791019155046/1000014190.jpg" alt="Database">
-<h3>DATABASE</h3><p>I use databases to organize information that an application needs to save and retrieve.</p>
-<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">50%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:50%;"></div></div></div>
-</div>
-<div class="skill-card">
-<img src="https://uploads.onecompiler.io/442nn5q5f/1791019159408/1000014185.png" alt="GitHub">
-<h3>GITHUB</h3><p>I use GitHub to keep my code, track changes, and share project work.</p>
-<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">40%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:40%;"></div></div></div>
-</div>
-<div class="skill-card">
-<img src="https://uploads.onecompiler.io/442nn5q5f/1791023799459/1000014206.png" alt="HARDWARE BUILD PROTOTYPE">
-<h3>HARDWARE BUILD PROTOTYPE</h3>
-<p>For our Computer Engineering coursework, I helped build a portable heart-monitoring prototype using hardware components. It is designed to read vital-sign data in real time and provide a practical demonstration of the system.</p>
-<div class="skill-level"><div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span class="skill-percent">80%</span></div><div class="skill-progress"><div class="skill-progress-fill" style="width:80%;"></div></div></div>
-</div>
-</div>
+
+  <h2 class="page-title">MY SKILLS</h2>
+
+  <div class="skills-container">
+
+    <div class="skill-card">
+
+      <img src="https://uploads.onecompiler.io/442nn5q5f/1791018847932/1000014186.jpg"
+alt="HTML logo">
+<PARSED TEXT FOR PAGE: 32 / 51>
+      <h3>HTML</h3>
+
+      <p>I use HTML to organize page content and build the basic structure of a website.</p>
+
+      <div class="skill-level">
+
+         <div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span
+class="skill-percent">70%</span></div>
+
+        <div class="skill-progress"><div class="skill-progress-fill"
+style="width:70%"></div></div>
+
+      </div>
+
+    </div>
+
+    <div class="skill-card">
+
+      <img src="https://uploads.onecompiler.io/442nn5q5f/1791019149765/1000014189.jpg"
+alt="CSS logo">
+
+      <h3>CSS</h3>
+
+      <p>I use CSS to style pages, arrange layouts, and add responsive details and
+animations.</p>
+
+      <div class="skill-level">
+
+         <div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span
+class="skill-percent">45%</span></div>
+
+        <div class="skill-progress"><div class="skill-progress-fill"
+style="width:45%"></div></div>
+
+      </div>
+
+    </div>
+
+    <div class="skill-card">
+
+       <img src="https://uploads.onecompiler.io/442nn5q5f/1791019144209/1000014183.png"
+alt="JavaScript logo">
+
+      <h3>JAVASCRIPT</h3>
+
+      <p>I use JavaScript to handle page interactions and make buttons and other features
+work.</p>
+<PARSED TEXT FOR PAGE: 33 / 51>
+      <div class="skill-level">
+
+         <div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span
+class="skill-percent">55%</span></div>
+
+        <div class="skill-progress"><div class="skill-progress-fill"
+style="width:55%"></div></div>
+
+      </div>
+
+    </div>
+
+    <div class="skill-card">
+
+      <img src="https://uploads.onecompiler.io/442nn5q5f/1791019155046/1000014190.jpg"
+alt="Database logo">
+
+      <h3>DATABASE</h3>
+
+       <p>I use databases to organize information that an application needs to save and
+retrieve.</p>
+
+      <div class="skill-level">
+
+         <div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span
+class="skill-percent">50%</span></div>
+
+        <div class="skill-progress"><div class="skill-progress-fill"
+style="width:50%"></div></div>
+
+      </div>
+
+    </div>
+
+    <div class="skill-card">
+
+       <img src="https://uploads.onecompiler.io/442nn5q5f/1791019159408/1000014185.png"
+alt="GitHub logo">
+
+      <h3>GITHUB</h3>
+
+      <p>I use GitHub to keep my code, track changes, and share project work.</p>
+
+      <div class="skill-level">
+
+         <div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span
+class="skill-percent">40%</span></div>
+<PARSED TEXT FOR PAGE: 34 / 51>
+        <div class="skill-progress"><div class="skill-progress-fill"
+style="width:40%"></div></div>
+
+      </div>
+
+    </div>
+
+    <div class="skill-card">
+
+      <img src="https://uploads.onecompiler.io/442nn5q5f/1791023799459/1000014206.png"
+alt="Hardware prototype">
+
+      <h3>HARDWARE BUILD PROTOTYPE</h3>
+
+       <p>Built a portable heart-monitoring prototype using hardware components to read vital
+signs in real time.</p>
+
+      <div class="skill-level">
+
+         <div class="skill-level-info"><span class="skill-level-text">LEVEL</span><span
+class="skill-percent">80%</span></div>
+
+        <div class="skill-progress"><div class="skill-progress-fill"
+style="width:80%"></div></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
+
+<!-- PROJECTS -->
+
 <section id="projects" class="page">
-<h2 class="page-title">PROJECTS</h2>
-<div class="project-tools">
-<button type="button" id="toggleProjectForm" class="resume-button">+ ADD PROJECT</button>
-</div>
-<form id="projectForm" class="project-form">
-<div><label for="projectTitle">Project Name *</label><input id="projectTitle" name="projectTitle" type="text" maxlength="100" placeholder="Enter project name" required></div>
-<div><label for="projectDescription">Description *</label><textarea id="projectDescription" name="projectDescription" maxlength="1000" placeholder="Describe your project" required></textarea></div>
-<div><label for="projectLink">Project Link (GitHub or live demo)</label><input id="projectLink" name="projectLink" type="url" placeholder="https://github.com/username/project"></div>
-<div><label for="projectImageUrl">Picture URL (optional)</label><input id="projectImageUrl" name="projectImageUrl" type="url" placeholder="https://example.com/project-picture.jpg"></div>
-<div><label for="projectImageFile">Or choose a picture from your phone</label><input id="projectImageFile" name="projectImageFile" type="file" accept="image/*"></div>
-<p class="project-form-note">Projects added here are saved in this browser on this device. To make them appear for every visitor, add the project details and image to the GitHub repository as well.</p>
-<div class="form-actions"><button class="resume-button" type="submit">SAVE PROJECT</button><button class="resume-button" type="button" id="cancelProjectForm" style="background:transparent;color:#00d9ff;border:1px solid #00d9ff;">CANCEL</button></div>
-</form>
-<div class="projects-container" id="projectsContainer">
-<div class="project-card"><h3>ERECPASS-Mobile Application</h3><p>A hospital portal project for organizing patient details, appointments, lab results, medications, and announcements in one place.</p></div>
-<div class="project-card"><h3>HEARTBEAT – Arduino-Based Multi-Parameter Heart Monitoring System With Local Alerting</h3><p>HEARTBEAT is an Arduino-based monitoring project focused on reading vital signs and giving local alerts. The goal is to make a compact, affordable prototype for demonstrating basic heart-monitoring features.</p></div>
-<div class="project-card"><h3>WEB/MOBILE APPLICATION</h3><p>A web/mobile app project where I practice building a clear layout and making the main features easy to use.</p></div>
-</div>
+
+  <h2 class="page-title">PROJECTS</h2>
+
+  <div class="projects-container" id="projectsContainer"></div>
+
 </section>
+
+<!-- CONTACT -->
+
 <section id="contact" class="page">
-<h2 class="page-title">CONTACT ME</h2>
-<div class="contact-container">
-<p><strong>EMAIL:</strong><br><a href="mailto:jomarjohnpaquibo7@gmail.com" style="color:inherit;text-decoration:none;">Jomarjohnpaquibo7@gmail.com</a></p>
-<p><strong>PHONE:</strong><br><a href="tel:+639927609792" style="color:inherit;text-decoration:none;">09927609792</a></p>
-</div>
+
+  <h2 class="page-title">CONTACT ME</h2>
+<PARSED TEXT FOR PAGE: 35 / 51>
+  <div class="contact-container">
+
+       <p>
+
+        <strong>EMAIL:</strong><br>
+
+        <a href="mailto:jomarpaquibo@gmail.com">jomarpaquibo@gmail.com</a>
+
+       </p>
+
+       <p>
+
+        <strong>PHONE:</strong><br>
+
+        <a href="tel:+639927609792">09927609792</a>
+
+       </p>
+
+       <p>
+
+        <strong>GITHUB:</strong><br>
+
+        <a href="https://github.com/jomarjohn" target="_blank" rel="noopener noreferrer">
+
+             Visit GitHub Profile
+
+        </a>
+
+       </p>
+
+  </div>
+
 </section>
+
 </main>
-<button id="backButton" class="back-button" style="display:none;">BACK ←</button>
+
+<footer>
+
+  <p>© <span id="currentYear"></span> THANK YOU FOR VISITING</p>
+
+</footer>
+
+<!-- PROJECT GALLERY MODAL -->
+
+<div
+
+  id="projectModal"
+
+  class="modal-overlay"
+
+  role="dialog"
+<PARSED TEXT FOR PAGE: 36 / 51>
+    aria-modal="true"
+
+    aria-labelledby="modalTitle"
+
+    aria-hidden="true"
+
+>
+
+    <div class="modal-content">
+
+      <button
+
+          type="button"
+
+          class="modal-close"
+
+          id="modalClose"
+
+          aria-label="Close project details"
+
+      >&times;</button>
+
+      <h3 id="modalTitle" class="modal-title"></h3>
+
+      <p id="modalDesc" class="modal-desc"></p>
+
+      <a
+
+          id="modalLink"
+
+          href="#"
+
+          target="_blank"
+
+          rel="noopener noreferrer"
+
+          class="modal-link-btn"
+
+      >🔗 Visit Project Link</a>
+      <div class="modal-preview-container">
+
+          <img id="modalMainImg" src="" alt="Project preview">
+
+      </div>
+
+      <div id="modalGallery" class="modal-gallery"></div>
+
+      <p id="galleryCounter" class="gallery-counter"></p>
+
+    </div>
+<PARSED TEXT FOR PAGE: 37 / 51>
+</div>
+
+<button type="button" id="backButton" class="back-button" hidden>
+
+     BACK ←
+
+</button>
+
 <script>
-const pages=document.querySelectorAll(".page");
-const navLinks=document.querySelectorAll(".nav-link");
-const backButton=document.getElementById("backButton");
-function showPage(pageId,useHistory=true){
- const targetPage=document.getElementById(pageId);
- if(!targetPage)return;
- pages.forEach(page=>{page.classList.remove("active");page.style.display="none";});
- targetPage.style.display=pageId==="home"?"flex":"block";
- targetPage.classList.add("active");
- navLinks.forEach(link=>{link.classList.remove("active");if(link.dataset.page===pageId)link.classList.add("active");});
- backButton.style.display=pageId==="home"?"none":"block";
- if(useHistory)history.pushState({page:pageId},"","#"+pageId);
- window.scrollTo({top:0,behavior:"smooth"});
-}
-navLinks.forEach(link=>link.addEventListener("click",function(event){event.preventDefault();showPage(this.dataset.page);}));
-backButton.addEventListener("click",()=>showPage("home"));
-window.addEventListener("popstate",()=>showPage(window.location.hash.substring(1)||"home",false));
-window.addEventListener("load",()=>showPage(window.location.hash.substring(1)||"home",false));
-const themeToggle=document.getElementById("themeToggle");
-function applyTheme(mode){
- const isLight=mode==="light";
- document.body.classList.toggle("light-mode",isLight);
- themeToggle.textContent=isLight?"🌙 Dark Mode":"☀️ Light Mode";
- themeToggle.setAttribute("aria-label",isLight?"Switch to dark mode":"Switch to light mode");
-}
-themeToggle.addEventListener("click",()=>{
- const nextMode=document.body.classList.contains("light-mode")?"dark":"light";
- applyTheme(nextMode);
- try{localStorage.setItem("jomarPortfolioTheme",nextMode);}catch(error){}
-});
-let savedTheme="dark";
-try{savedTheme=localStorage.getItem("jomarPortfolioTheme")||"dark";}catch(error){}
-applyTheme(savedTheme);
 
-// Add project cards with optional link and picture.
-// Custom projects are saved locally in this browser.
-const projectForm = document.getElementById("projectForm");
-const toggleProjectForm = document.getElementById("toggleProjectForm");
-const cancelProjectForm = document.getElementById("cancelProjectForm");
+"use strict";
+
+/* PROJECT DATA
+
+ Change each project's link and five image URLs here.
+
+*/
+
+const projectsData = [
+
+     {
+
+          title: "ERECPASS-Mobile Application",
+
+   desc: "A hospital portal project for organizing patient details, appointments, lab results,
+medications, and announcements in one place.",
+
+          link: "https://jomarportfolio.github.io/ERECPASS-/",
+
+          images: [
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791801296870/1000014594.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791801302942/1000014593.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791801315148/1000014592.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791801320609/1000014596.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791801334930/1000014591.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791801339981/1000014590.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791801345286/1000014589.jpg"
+
+          ]
+
+     },
+
+     {
+<PARSED TEXT FOR PAGE: 38 / 51>
+       title: "HEARTBEAT – Arduino-Based Multi-Parameter Heart Monitoring System",
+
+    desc: "HEARTBEAT is an Arduino-based monitoring project focused on reading vital signs
+and giving local alerts.",
+
+       link: "https://github.com/jomarjohn",
+
+       images: [
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791808604709/1000014617.jpg",
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791808640470/1000014620.jpg",
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791808646700/1000014621.jpg",
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791808633127/1000014619.jpg",
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791808623913/1000014618.jpg"
+
+       ]
+
+  },
+
+  {
+
+       title: "WEBSITE SATE STEPS PH",
+
+    desc: "Safe Steps PH is an intuitive travel platform designed to help users discover top local
+destinations and hidden tourist spots across the region. It allows travelers to seamlessly explore
+nearby attractions and directly book their trips or accommodations all in one place.",
+
+       link: "https://github.com/jomarjohn",
+
+       images: [
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791809864468/1000014629.jpg",
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791809877690/1000014627.jpg",
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791809884403/1000014628.jpg",
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791809894441/1000014632.jpg",
+
+           "https://uploads.onecompiler.io/442nn5q5f/1791809902466/1000014630.jpg"
+
+       ]
+
+  },
+
+  {
+<PARSED TEXT FOR PAGE: 39 / 51>
+          title: "POWER SUPPLY 12 volts",
+
+    desc: "This adjustable 12V power supply project is designed to deliver a stable direct
+current output with customizable voltage levels, allowing users to safely test and power various
+electronic circuits and components.",
+
+          link: "https://github.com/jomarjohn",
+
+          images: [
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791810655237/1000014639.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791810663060/1000014641.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791810679223/1000014642.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791810685747/1000014643.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791810693273/1000014638.jpg"
+
+          ]
+
+     },
+
+     {
+
+          title: "PROTOTYPE- AUTOMATED CABLE MESSUREMENT & CUTTING",
+
+          desc: "Hardware project focused on automated wire cutting and mechanical integration..",
+
+          link: "https://github.com/jomarjohn",
+
+          images: [
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791812178314/1000014646.jpg",
+
+              "https://uploads.onecompiler.io/442nn5q5f/1791812187666/1000014648.jpg",
+
+
+
+
+          ]
+
+     }
+
+];
+
+/* PROJECT CARDS */
+<PARSED TEXT FOR PAGE: 40 / 51>
 const projectsContainer = document.getElementById("projectsContainer");
-const projectImageFile = document.getElementById("projectImageFile");
-const PROJECTS_STORAGE_KEY = "jomarPortfolioCustomProjects";
 
-function readCustomProjects() {
-    try {
-        const stored = localStorage.getItem(PROJECTS_STORAGE_KEY);
-        return stored ? JSON.parse(stored) : [];
-    } catch (error) {
-        return [];
-    }
-}
+projectsData.forEach((project, index) => {
 
-function safeExternalUrl(value) {
-    if (!value) return "";
-    try {
-        const parsed = new URL(value);
-        return ["http:", "https:"].includes(parsed.protocol) ? parsed.href : "";
-    } catch (error) {
-        return "";
-    }
-}
+      const card = document.createElement("div");
 
-function renderCustomProjects() {
-    projectsContainer.querySelectorAll("[data-custom-project]").forEach(card => card.remove());
+      card.className = "project-card";
 
-    readCustomProjects().forEach((project, index) => {
-        const card = document.createElement("article");
-        card.className = "project-card";
-        card.dataset.customProject = "true";
+      card.tabIndex = 0;
 
-        if (project.image) {
-            const image = document.createElement("img");
-            image.className = "project-image";
-            image.src = project.image;
-            image.alt = project.title + " project picture";
-            card.appendChild(image);
-        }
+      card.setAttribute("role", "button");
 
-        const title = document.createElement("h3");
-        title.textContent = project.title;
-        card.appendChild(title);
+      card.setAttribute("aria-label", "View " + project.title + " details");
 
-        const description = document.createElement("p");
-        description.textContent = project.description;
-        card.appendChild(description);
+      const info = document.createElement("div");
 
-        const actions = document.createElement("div");
-        actions.className = "project-actions";
+      const title = document.createElement("h3");
 
-        const projectUrl = safeExternalUrl(project.link);
-        if (projectUrl) {
-            const link = document.createElement("a");
-            link.className = "project-link";
-            link.href = projectUrl;
-            link.target = "_blank";
-            link.rel = "noopener noreferrer";
-            link.textContent = "VIEW PROJECT ↗";
-            actions.appendChild(link);
-        }
+      const desc = document.createElement("p");
 
-        const deleteButton = document.createElement("button");
-        deleteButton.type = "button";
-        deleteButton.className = "project-delete";
-        deleteButton.textContent = "REMOVE";
-        deleteButton.addEventListener("click", () => {
-            if (!confirm("Remove this project from this browser?")) return;
-            const current = readCustomProjects();
-            current.splice(index, 1);
-            try {
-                localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(current));
-                renderCustomProjects();
-            } catch (error) {
-                alert("Unable to update saved projects in this browser.");
+      const button = document.createElement("span");
+
+      title.textContent = project.title;
+
+      desc.textContent = project.desc;
+
+      button.className = "project-btn";
+
+      button.textContent = "View Details & Gallery";
+
+      info.append(title, desc);
+
+      card.append(info, button);
+
+      card.addEventListener("click", () => openProjectModal(index));
+
+      card.addEventListener("keydown", event => {
+
+            if (event.key === "Enter" || event.key === " ") {
+
+                event.preventDefault();
+
+                openProjectModal(index);
+
             }
+
+      });
+
+      projectsContainer.appendChild(card);
+
+});
+<PARSED TEXT FOR PAGE: 41 / 51>
+/* PROJECT MODAL AND GALLERY */
+
+const projectModal = document.getElementById("projectModal");
+
+const modalTitle = document.getElementById("modalTitle");
+
+const modalDesc = document.getElementById("modalDesc");
+
+const modalLink = document.getElementById("modalLink");
+
+const modalMainImg = document.getElementById("modalMainImg");
+
+const modalGallery = document.getElementById("modalGallery");
+
+const galleryCounter = document.getElementById("galleryCounter");
+
+const modalClose = document.getElementById("modalClose");
+
+let currentProjectImages = [];
+
+let currentImageIndex = 0;
+
+let lastFocusedElement = null;
+
+function openProjectModal(index) {
+
+  const project = projectsData[index];
+
+  if (!project) return;
+
+  lastFocusedElement = document.activeElement;
+
+  modalTitle.textContent = project.title;
+
+  modalDesc.textContent = project.desc;
+
+  if (project.link) {
+
+      modalLink.href = project.link;
+
+      modalLink.style.display = "inline-block";
+
+  } else {
+
+      modalLink.removeAttribute("href");
+
+      modalLink.style.display = "none";
+
+  }
+
+  currentProjectImages = Array.isArray(project.images)
+<PARSED TEXT FOR PAGE: 42 / 51>
+  ? project.images
+
+  : [];
+
+currentImageIndex = 0;
+
+modalGallery.replaceChildren();
+
+if (currentProjectImages.length === 0) {
+
+  modalMainImg.removeAttribute("src");
+
+  modalMainImg.alt = "No project image available";
+
+  modalMainImg.style.display = "none";
+
+  galleryCounter.textContent = "No images added yet.";
+
+} else {
+
+  modalMainImg.style.display = "block";
+
+  currentProjectImages.forEach((imageUrl, imageIndex) => {
+
+     const thumbnail = document.createElement("img");
+
+     thumbnail.src = imageUrl;
+
+     thumbnail.alt = project.title + " image " + (imageIndex + 1);
+
+     thumbnail.className =
+
+           "modal-thumb" +
+
+           (imageIndex === 0 ? " active-thumb" : "");
+
+     thumbnail.tabIndex = 0;
+
+     thumbnail.setAttribute("role", "button");
+
+     thumbnail.setAttribute(
+
+           "aria-label",
+
+           "Show image " + (imageIndex + 1)
+
+     );
+
+     thumbnail.addEventListener("click", () => {
+
+           selectProjectImage(imageIndex);
+<PARSED TEXT FOR PAGE: 43 / 51>
+              });
+
+              thumbnail.addEventListener("keydown", event => {
+
+                    if (event.key === "Enter" || event.key === " ") {
+
+                        event.preventDefault();
+
+                        selectProjectImage(imageIndex);
+
+                    }
+
+              });
+
+              modalGallery.appendChild(thumbnail);
+
         });
-        actions.appendChild(deleteButton);
-        card.appendChild(actions);
-        projectsContainer.appendChild(card);
-    });
+
+        selectProjectImage(0);
+
+    }
+
+    projectModal.classList.add("active");
+
+    projectModal.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+
+    modalClose.focus();
+
 }
 
-toggleProjectForm.addEventListener("click", () => {
-    projectForm.classList.toggle("open");
-    if (projectForm.classList.contains("open")) {
-        document.getElementById("projectTitle").focus();
+function selectProjectImage(index) {
+
+    if (
+
+        index < 0 ||
+
+        index >= currentProjectImages.length
+
+    ) return;
+
+    currentImageIndex = index;
+
+    modalMainImg.src = currentProjectImages[index];
+
+    modalMainImg.alt =
+
+        modalTitle.textContent + " preview " + (index + 1);
+
+    modalGallery.querySelectorAll(".modal-thumb").forEach(
+<PARSED TEXT FOR PAGE: 44 / 51>
+         (thumbnail, thumbnailIndex) => {
+
+             thumbnail.classList.toggle(
+
+                  "active-thumb",
+
+                  thumbnailIndex === index
+
+             );
+
+             thumbnail.setAttribute(
+
+                  "aria-pressed",
+
+                  String(thumbnailIndex === index)
+
+             );
+
+         }
+
+    );
+
+    galleryCounter.textContent =
+
+         "Image " + (index + 1) + " of " + currentProjectImages.length;
+
+}
+
+function closeProjectModal() {
+
+    if (!projectModal.classList.contains("active")) return;
+
+    projectModal.classList.remove("active");
+
+    projectModal.setAttribute("aria-hidden", "true");
+
+    document.body.style.overflow = "";
+
+    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+
+         lastFocusedElement.focus();
+
     }
+
+}
+
+modalClose.addEventListener("click", closeProjectModal);
+
+projectModal.addEventListener("click", event => {
+
+    if (event.target === projectModal) {
+<PARSED TEXT FOR PAGE: 45 / 51>
+          closeProjectModal();
+
+      }
+
 });
 
-cancelProjectForm.addEventListener("click", () => {
-    projectForm.reset();
-    projectForm.classList.remove("open");
+document.addEventListener("keydown", event => {
+
+      if (!projectModal.classList.contains("active")) return;
+
+      if (event.key === "Escape") {
+
+          closeProjectModal();
+
+      }
+
+      if (event.key === "ArrowRight") {
+
+          if (currentImageIndex < currentProjectImages.length - 1) {
+
+              selectProjectImage(currentImageIndex + 1);
+
+          }
+
+      }
+
+      if (event.key === "ArrowLeft") {
+
+          if (currentImageIndex > 0) {
+
+              selectProjectImage(currentImageIndex - 1);
+
+          }
+
+      }
+
 });
 
-projectForm.addEventListener("submit", event => {
-    event.preventDefault();
+/* PAGE NAVIGATION */
 
-    const title = document.getElementById("projectTitle").value.trim();
-    const description = document.getElementById("projectDescription").value.trim();
-    const linkInput = document.getElementById("projectLink").value.trim();
-    const imageUrlInput = document.getElementById("projectImageUrl").value.trim();
-    const safeLink = safeExternalUrl(linkInput);
-    const safeImageUrl = safeExternalUrl(imageUrlInput);
-    const selectedFile = projectImageFile.files && projectImageFile.files[0];
+const pages = document.querySelectorAll(".page");
 
-    if (!title || !description) {
-        alert("Please enter the project name and description.");
-        return;
-    }
-    if (linkInput && !safeLink) {
-        alert("Please enter a valid http:// or https:// project link.");
-        return;
-    }
-    if (imageUrlInput && !safeImageUrl) {
-        alert("Please enter a valid http:// or https:// picture URL.");
-        return;
-    }
-    if (selectedFile && !selectedFile.type.startsWith("image/")) {
-        alert("Please select an image file.");
-        return;
-    }
-    if (selectedFile && selectedFile.size > 1500000) {
-        alert("Please choose an image smaller than 1.5 MB.");
-        return;
-    }
+const navLinks = document.querySelectorAll(".nav-link");
 
-    const saveProject = imageData => {
-        const projects = readCustomProjects();
-        projects.push({
-            title,
-            description,
-            link: safeLink,
-            image: imageData || safeImageUrl || ""
-        });
+const backButton = document.getElementById("backButton");
 
-        try {
-            localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(projects));
-            renderCustomProjects();
-            projectForm.reset();
-            projectForm.classList.remove("open");
-            alert("Project saved in this browser.");
-        } catch (error) {
-            alert("Could not save this project. Try a smaller picture or use a picture URL.");
-        }
-    };
+function showPage(pageId, updateHash = true) {
 
-    if (selectedFile) {
-        const reader = new FileReader();
-        reader.onload = () => saveProject(String(reader.result || ""));
-        reader.onerror = () => alert("Could not read that image. Please try another one.");
-        reader.readAsDataURL(selectedFile);
-    } else {
-        saveProject("");
-    }
+      const targetPage = document.getElementById(pageId);
+
+      if (!targetPage || !targetPage.classList.contains("page")) {
+<PARSED TEXT FOR PAGE: 46 / 51>
+      pageId = "home";
+
+}
+
+pages.forEach(page => {
+
+      page.classList.remove("active");
+
+      page.style.display = "none";
+
 });
 
-renderCustomProjects();
+const selectedPage = document.getElementById(pageId);
+
+selectedPage.style.display =
+
+      pageId === "home" ? "flex" : "block";
+
+selectedPage.classList.add("active");
+
+if (pageId === "skills") animateSkillBars(selectedPage);
+
+navLinks.forEach(link => {
+
+      const active = link.dataset.page === pageId;
+
+      link.classList.toggle("active", active);
+
+      if (active) {
+
+          link.setAttribute("aria-current", "page");
+
+      } else {
+
+          link.removeAttribute("aria-current");
+
+      }
+
+});
+
+backButton.hidden = pageId === "home";
+
+closeProjectModal();
+
+if (updateHash && window.location.hash !== "#" + pageId) {
+
+      history.replaceState(null, "", "#" + pageId);
+
+}
+
+window.scrollTo({ top: 0, behavior: "smooth" });
+<PARSED TEXT FOR PAGE: 47 / 51>
+}
+
+navLinks.forEach(link => {
+
+      link.addEventListener("click", event => {
+
+            event.preventDefault();
+
+            showPage(link.dataset.page);
+
+      });
+
+});
+
+backButton.addEventListener("click", () => {
+
+      showPage("home");
+
+});
+
+window.addEventListener("hashchange", () => {
+
+      const pageId = window.location.hash.slice(1);
+
+      showPage(pageId || "home", false);
+
+});
+
+/* LIGHT / DARK MODE */
+
+const themeToggle = document.getElementById("themeToggle");
+
+function updateThemeButton() {
+
+      const isLight = document.body.classList.contains("light-mode");
+
+      themeToggle.textContent = isLight
+
+            ?" 🌙 Dark Mode"
+            : "☀️ Light Mode";
+
+      themeToggle.setAttribute(
+
+            "aria-label",
+
+            isLight ? "Switch to dark mode" : "Switch to light mode"
+
+      );
+
+      themeToggle.setAttribute("aria-pressed", String(isLight));
+<PARSED TEXT FOR PAGE: 48 / 51>
+}
+
+themeToggle.addEventListener("click", () => {
+
+      document.body.classList.toggle("light-mode");
+
+      updateThemeButton();
+
+});
+
+updateThemeButton();
+
+/* DOWNLOAD PORTFOLIO */
+
+const downloadButton = document.querySelector(
+
+      ".resume-button[download]"
+
+);
+
+if (downloadButton) {
+
+      downloadButton.addEventListener("click", event => {
+
+            const pdfPath = downloadButton.getAttribute("href");
+
+            if (!pdfPath || pdfPath === "#") {
+
+                event.preventDefault();
+
+                alert("Please add your portfolio PDF file first.");
+
+            }
+
+      });
+
+}
+
+
+
+/* EXTRA ANIMATION CONTROLS */
+
+const motionProgress = document.getElementById("motionProgress");
+
+function updateMotionProgress() {
+
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+
+      const percent = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+
+      motionProgress.style.width = percent + "%";
+<PARSED TEXT FOR PAGE: 49 / 51>
+}
+
+window.addEventListener("scroll", updateMotionProgress, { passive: true });
+
+window.addEventListener("resize", updateMotionProgress);
+
+updateMotionProgress();
+
+
+
+function animateSkillBars(scope = document) {
+
+    scope.querySelectorAll(".skill-progress-fill").forEach((bar, index) => {
+
+          const targetWidth = bar.dataset.targetWidth || bar.style.width || "0%";
+
+          bar.dataset.targetWidth = targetWidth;
+
+          bar.style.width = "0%";
+
+          requestAnimationFrame(() => {
+
+                window.setTimeout(() => { bar.style.width = targetWidth; }, index * 90);
+
+          });
+
+    });
+
+}
+
+
+
+/* Small ripple feedback for interactive controls; no layout changes. */
+
+document.querySelectorAll("button, .resume-button, .modal-link-btn").forEach(control => {
+
+    control.addEventListener("pointerdown", event => {
+
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+          const ripple = document.createElement("span");
+
+          const rect = control.getBoundingClientRect();
+
+          const diameter = Math.max(rect.width, rect.height) * 1.3;
+
+          ripple.style.cssText = [
+
+                "position:absolute", "pointer-events:none", "border-radius:50%",
+
+                "width:" + diameter + "px", "height:" + diameter + "px",
+<PARSED TEXT FOR PAGE: 50 / 51>
+              "left:" + (event.clientX - rect.left - diameter / 2) + "px",
+
+              "top:" + (event.clientY - rect.top - diameter / 2) + "px",
+
+              "background:rgba(255,255,255,.28)", "transform:scale(0)",
+
+              "animation:ripplePulse .55s ease-out forwards"
+
+            ].join(";");
+
+            control.appendChild(ripple);
+
+            window.setTimeout(() => ripple.remove(), 600);
+
+      });
+
+});
+
+const rippleStyle = document.createElement("style");
+
+rippleStyle.textContent = "@keyframes ripplePulse { to { transform:scale(1); opacity:0; } }";
+
+document.head.appendChild(rippleStyle);
+
+
+
+/* FOOTER YEAR */
+
+document.getElementById("currentYear").textContent =
+
+      new Date().getFullYear();
+
+/* INITIAL PAGE */
+
+const initialPage = window.location.hash.slice(1);
+
+const initialTarget = document.getElementById(initialPage);
+
+if (initialTarget && initialTarget.classList.contains("page")) {
+
+      showPage(initialPage, false);
+
+} else {
+
+      showPage("home", false);
+
+}
 
 </script>
+
 </body>
+<PARSED TEXT FOR PAGE: 51 / 51>
 </html>
