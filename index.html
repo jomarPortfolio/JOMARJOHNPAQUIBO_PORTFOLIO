@@ -924,10 +924,11 @@ main {
     transform: translateY(-1px);
 }
 .modal-preview-container img {
-    transform: scale(1);
-    transform-origin: center center;
-    transition: transform .18s ease;
-    will-change: transform;
+    transform: none;
+    transform-origin: top left;
+    transition: width .18s ease, height .18s ease;
+    will-change: width, height;
+    flex-shrink: 0;
 }
 
 
@@ -2087,21 +2088,36 @@ const modalLink = document.getElementById("modalLink");
 
 const modalMainImg = document.getElementById("modalMainImg");
 
-/* Compact zoom controls for the active project image. */
+/* Reliable project-image zoom: resize the image inside a scrollable preview. */
 let imageZoom = 1;
+const previewContainer = modalMainImg.closest(".modal-preview-container");
+previewContainer.style.overflow = "auto";
+previewContainer.style.alignItems = "flex-start";
+previewContainer.style.justifyContent = "flex-start";
+modalMainImg.style.flex = "0 0 auto";
+modalMainImg.style.maxWidth = "none";
+modalMainImg.style.maxHeight = "none";
+modalMainImg.style.transform = "none";
+
 const zoomControls = document.createElement("div");
 zoomControls.className = "modal-zoom-controls";
 zoomControls.setAttribute("role", "group");
 zoomControls.setAttribute("aria-label", "Image zoom controls");
 zoomControls.innerHTML = `
     <button type="button" id="imageZoomOut" aria-label="Zoom out" title="Zoom out">−</button>
+    <span id="imageZoomLevel" aria-live="polite" style="min-width:48px;text-align:center;color:var(--muted);font-size:13px;font-weight:bold">100%</span>
     <button type="button" id="imageZoomReset" aria-label="Reset zoom" title="Reset zoom">Reset</button>
     <button type="button" id="imageZoomIn" aria-label="Zoom in" title="Zoom in">+</button>
 `;
-modalMainImg.closest(".modal-preview-container").insertAdjacentElement("afterend", zoomControls);
+previewContainer.insertAdjacentElement("afterend", zoomControls);
 
 function applyImageZoom() {
-    modalMainImg.style.transform = "scale(" + imageZoom + ")";
+    const percent = Math.round(imageZoom * 100);
+    modalMainImg.style.width = percent + "%";
+    modalMainImg.style.height = percent + "%";
+    modalMainImg.style.objectFit = "contain";
+    modalMainImg.style.transform = "none";
+    document.getElementById("imageZoomLevel").textContent = percent + "%";
     document.getElementById("imageZoomOut").disabled = imageZoom <= 1;
     document.getElementById("imageZoomIn").disabled = imageZoom >= 3;
     document.getElementById("imageZoomReset").disabled = imageZoom === 1;
@@ -2110,16 +2126,12 @@ function applyImageZoom() {
     document.getElementById("imageZoomReset").style.opacity = imageZoom === 1 ? ".5" : "1";
 }
 
-document.getElementById("imageZoomIn").addEventListener("click", () => {
-    imageZoom = Math.min(3, Math.round((imageZoom + 0.25) * 100) / 100);
-    applyImageZoom();
-});
-document.getElementById("imageZoomOut").addEventListener("click", () => {
-    imageZoom = Math.max(1, Math.round((imageZoom - 0.25) * 100) / 100);
-    applyImageZoom();
-});
-document.getElementById("imageZoomReset").addEventListener("click", () => {
-    imageZoom = 1;
+zoomControls.addEventListener("click", event => {
+    const button = event.target.closest("button");
+    if (!button || button.disabled) return;
+    if (button.id === "imageZoomIn") imageZoom = Math.min(3, Math.round((imageZoom + 0.25) * 100) / 100);
+    if (button.id === "imageZoomOut") imageZoom = Math.max(1, Math.round((imageZoom - 0.25) * 100) / 100);
+    if (button.id === "imageZoomReset") imageZoom = 1;
     applyImageZoom();
 });
 
