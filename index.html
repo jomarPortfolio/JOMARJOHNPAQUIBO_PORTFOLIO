@@ -51,14 +51,6 @@ main{padding-top:70px;min-height:100vh}
 .project-card:hover{transform:translateY(-7px);border-color:#00d9ff;box-shadow:0 0 25px rgba(0,217,255,.15)}
 .project-card h3{color:#00d9ff;font-size:22px;margin-bottom:15px}
 .project-card p{color:#c9d4df;line-height:1.7}
-.project-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:18px 0}
-.project-gallery img{display:block;width:100%;height:125px;object-fit:cover;border-radius:9px;border:1px solid rgba(0,217,255,.2);background:#07111f;cursor:pointer;transition:transform .2s}
-.project-gallery img:hover{transform:scale(1.025)}
-.project-link{display:inline-block;margin-top:8px;padding:10px 15px;border:1px solid #00d9ff;border-radius:20px;color:#00d9ff;text-decoration:none;font-weight:bold;font-size:13px;transition:.25s}
-.project-link:hover{background:#00d9ff;color:#07111f}
-body.light-mode .project-card{background:#fff;border-color:rgba(0,100,180,.2)}
-body.light-mode .project-card p{color:#405267}
-body.light-mode .project-gallery img{background:#eef4fa}
 .contact-container{max-width:700px;margin:auto;background:#0d1b2d;padding:40px;border-radius:18px;border:1px solid rgba(0,217,255,.2);text-align:center}
 .contact-container p{font-size:18px;margin:20px 0;color:#c9d4df}
 .contact-container strong{color:#00d9ff}
@@ -261,54 +253,22 @@ body.light-mode .project-form input,body.light-mode .project-form textarea{backg
 </section>
 <section id="projects" class="page">
 <h2 class="page-title">PROJECTS</h2>
-<div class="projects-container">
-<!-- PROJECT 1: ERecPass
-     Add five image files to the repository folder: images/erecpass-1.png through images/erecpass-5.png
-     Replace YOUR-ERECPASS-LINK below with the real ERecPass live URL. -->
-<div class="project-card">
-<h3>ERECPASS – Mobile Application</h3>
-<p>A hospital portal project for organizing patient details, appointments, lab results, medications, and announcements in one place.</p>
-<div class="project-gallery">
-<img src="images/erecpass-1.png" alt="ERecPass screenshot 1" onerror="this.style.display='none'">
-<img src="images/erecpass-2.png" alt="ERecPass screenshot 2" onerror="this.style.display='none'">
-<img src="images/erecpass-3.png" alt="ERecPass screenshot 3" onerror="this.style.display='none'">
-<img src="images/erecpass-4.png" alt="ERecPass screenshot 4" onerror="this.style.display='none'">
-<img src="images/erecpass-5.png" alt="ERecPass screenshot 5" onerror="this.style.display='none'">
+<div class="project-tools">
+<button type="button" id="toggleProjectForm" class="resume-button">+ ADD PROJECT</button>
 </div>
-<a class="project-link" href="https://YOUR-ERECPASS-LINK" target="_blank" rel="noopener noreferrer">VIEW PROJECT ↗</a>
-</div>
-
-<!-- PROJECT 2: HEARTBEAT
-     Add five image files to the repository folder: images/heartbeat-1.png through images/heartbeat-5.png
-     Replace YOUR-HEARTBEAT-LINK with the project's real link. -->
-<div class="project-card">
-<h3>HEARTBEAT – Arduino-Based Multi-Parameter Heart Monitoring System With Local Alerting</h3>
-<p>HEARTBEAT is an Arduino-based monitoring project focused on reading vital signs and giving local alerts. The goal is to make a compact, affordable prototype for demonstrating basic heart-monitoring features.</p>
-<div class="project-gallery">
-<img src="images/heartbeat-1.png" alt="HEARTBEAT project image 1" onerror="this.style.display='none'">
-<img src="images/heartbeat-2.png" alt="HEARTBEAT project image 2" onerror="this.style.display='none'">
-<img src="images/heartbeat-3.png" alt="HEARTBEAT project image 3" onerror="this.style.display='none'">
-<img src="images/heartbeat-4.png" alt="HEARTBEAT project image 4" onerror="this.style.display='none'">
-<img src="images/heartbeat-5.png" alt="HEARTBEAT project image 5" onerror="this.style.display='none'">
-</div>
-<a class="project-link" href="https://YOUR-HEARTBEAT-LINK" target="_blank" rel="noopener noreferrer">VIEW PROJECT ↗</a>
-</div>
-
-<!-- PROJECT 3: WEB/MOBILE APPLICATION
-     Add five image files to the repository folder: images/webmobile-1.png through images/webmobile-5.png
-     Replace YOUR-WEBMOBILE-LINK with the project's real link. -->
-<div class="project-card">
-<h3>WEB/MOBILE APPLICATION</h3>
-<p>A web/mobile app project where I practice building a clear layout and making the main features easy to use.</p>
-<div class="project-gallery">
-<img src="images/webmobile-1.png" alt="Web/mobile application image 1" onerror="this.style.display='none'">
-<img src="images/webmobile-2.png" alt="Web/mobile application image 2" onerror="this.style.display='none'">
-<img src="images/webmobile-3.png" alt="Web/mobile application image 3" onerror="this.style.display='none'">
-<img src="images/webmobile-4.png" alt="Web/mobile application image 4" onerror="this.style.display='none'">
-<img src="images/webmobile-5.png" alt="Web/mobile application image 5" onerror="this.style.display='none'">
-</div>
-<a class="project-link" href="https://YOUR-WEBMOBILE-LINK" target="_blank" rel="noopener noreferrer">VIEW PROJECT ↗</a>
-</div>
+<form id="projectForm" class="project-form">
+<div><label for="projectTitle">Project Name *</label><input id="projectTitle" name="projectTitle" type="text" maxlength="100" placeholder="Enter project name" required></div>
+<div><label for="projectDescription">Description *</label><textarea id="projectDescription" name="projectDescription" maxlength="1000" placeholder="Describe your project" required></textarea></div>
+<div><label for="projectLink">Project Link (GitHub or live demo)</label><input id="projectLink" name="projectLink" type="url" placeholder="https://github.com/username/project"></div>
+<div><label for="projectImageUrl">Picture URL (optional)</label><input id="projectImageUrl" name="projectImageUrl" type="url" placeholder="https://example.com/project-picture.jpg"></div>
+<div><label for="projectImageFile">Or choose a picture from your phone</label><input id="projectImageFile" name="projectImageFile" type="file" accept="image/*"></div>
+<p class="project-form-note">Projects added here are saved in this browser on this device. To make them appear for every visitor, add the project details and image to the GitHub repository as well.</p>
+<div class="form-actions"><button class="resume-button" type="submit">SAVE PROJECT</button><button class="resume-button" type="button" id="cancelProjectForm" style="background:transparent;color:#00d9ff;border:1px solid #00d9ff;">CANCEL</button></div>
+</form>
+<div class="projects-container" id="projectsContainer">
+<div class="project-card"><h3>ERECPASS-Mobile Application</h3><p>A hospital portal project for organizing patient details, appointments, lab results, medications, and announcements in one place.</p></div>
+<div class="project-card"><h3>HEARTBEAT – Arduino-Based Multi-Parameter Heart Monitoring System With Local Alerting</h3><p>HEARTBEAT is an Arduino-based monitoring project focused on reading vital signs and giving local alerts. The goal is to make a compact, affordable prototype for demonstrating basic heart-monitoring features.</p></div>
+<div class="project-card"><h3>WEB/MOBILE APPLICATION</h3><p>A web/mobile app project where I practice building a clear layout and making the main features easy to use.</p></div>
 </div>
 </section>
 <section id="contact" class="page">
@@ -355,9 +315,83 @@ let savedTheme="dark";
 try{savedTheme=localStorage.getItem("jomarPortfolioTheme")||"dark";}catch(error){}
 applyTheme(savedTheme);
 
-// Project cards, image galleries, and project URLs are defined directly in the HTML above.
+// Add project cards with optional link and picture.
+// Custom projects are saved locally in this browser.
+const projectForm = document.getElementById("projectForm");
+const toggleProjectForm = document.getElementById("toggleProjectForm");
+const cancelProjectForm = document.getElementById("cancelProjectForm");
+const projectsContainer = document.getElementById("projectsContainer");
+const projectImageFile = document.getElementById("projectImageFile");
+const PROJECTS_STORAGE_KEY = "jomarPortfolioCustomProjects";
 
+function readCustomProjects() {
+    try {
+        const stored = localStorage.getItem(PROJECTS_STORAGE_KEY);
+        return stored ? JSON.parse(stored) : [];
+    } catch (error) {
+        return [];
+    }
+}
 
+function safeExternalUrl(value) {
+    if (!value) return "";
+    try {
+        const parsed = new URL(value);
+        return ["http:", "https:"].includes(parsed.protocol) ? parsed.href : "";
+    } catch (error) {
+        return "";
+    }
+}
+
+function renderCustomProjects() {
+    projectsContainer.querySelectorAll("[data-custom-project]").forEach(card => card.remove());
+
+    readCustomProjects().forEach((project, index) => {
+        const card = document.createElement("article");
+        card.className = "project-card";
+        card.dataset.customProject = "true";
+
+        if (project.image) {
+            const image = document.createElement("img");
+            image.className = "project-image";
+            image.src = project.image;
+            image.alt = project.title + " project picture";
+            card.appendChild(image);
+        }
+
+        const title = document.createElement("h3");
+        title.textContent = project.title;
+        card.appendChild(title);
+
+        const description = document.createElement("p");
+        description.textContent = project.description;
+        card.appendChild(description);
+
+        const actions = document.createElement("div");
+        actions.className = "project-actions";
+
+        const projectUrl = safeExternalUrl(project.link);
+        if (projectUrl) {
+            const link = document.createElement("a");
+            link.className = "project-link";
+            link.href = projectUrl;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = "VIEW PROJECT ↗";
+            actions.appendChild(link);
+        }
+
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.className = "project-delete";
+        deleteButton.textContent = "REMOVE";
+        deleteButton.addEventListener("click", () => {
+            if (!confirm("Remove this project from this browser?")) return;
+            const current = readCustomProjects();
+            current.splice(index, 1);
+            try {
+                localStorage.setItem(PROJECTS_STORAGE_KEY, JSON.stringify(current));
+                renderCustomProjects();
             } catch (error) {
                 alert("Unable to update saved projects in this browser.");
             }
