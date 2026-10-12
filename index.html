@@ -897,6 +897,40 @@ main {
 
 }
 
+/* Image zoom controls: compact additions that preserve the existing gallery layout. */
+.modal-zoom-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: -5px 0 15px;
+}
+.modal-zoom-controls button {
+    min-width: 38px;
+    min-height: 34px;
+    padding: 6px 11px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--card);
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background .2s, color .2s, transform .2s;
+}
+.modal-zoom-controls button:hover {
+    background: var(--accent);
+    color: var(--bg);
+    transform: translateY(-1px);
+}
+.modal-preview-container img {
+    transform: scale(1);
+    transform-origin: center center;
+    transition: transform .18s ease;
+    will-change: transform;
+}
+
+
 .modal-gallery {
 
     display: grid;
@@ -2053,6 +2087,43 @@ const modalLink = document.getElementById("modalLink");
 
 const modalMainImg = document.getElementById("modalMainImg");
 
+/* Compact zoom controls for the active project image. */
+let imageZoom = 1;
+const zoomControls = document.createElement("div");
+zoomControls.className = "modal-zoom-controls";
+zoomControls.setAttribute("role", "group");
+zoomControls.setAttribute("aria-label", "Image zoom controls");
+zoomControls.innerHTML = `
+    <button type="button" id="imageZoomOut" aria-label="Zoom out" title="Zoom out">−</button>
+    <button type="button" id="imageZoomReset" aria-label="Reset zoom" title="Reset zoom">Reset</button>
+    <button type="button" id="imageZoomIn" aria-label="Zoom in" title="Zoom in">+</button>
+`;
+modalMainImg.closest(".modal-preview-container").insertAdjacentElement("afterend", zoomControls);
+
+function applyImageZoom() {
+    modalMainImg.style.transform = "scale(" + imageZoom + ")";
+    document.getElementById("imageZoomOut").disabled = imageZoom <= 1;
+    document.getElementById("imageZoomIn").disabled = imageZoom >= 3;
+    document.getElementById("imageZoomReset").disabled = imageZoom === 1;
+    document.getElementById("imageZoomOut").style.opacity = imageZoom <= 1 ? ".5" : "1";
+    document.getElementById("imageZoomIn").style.opacity = imageZoom >= 3 ? ".5" : "1";
+    document.getElementById("imageZoomReset").style.opacity = imageZoom === 1 ? ".5" : "1";
+}
+
+document.getElementById("imageZoomIn").addEventListener("click", () => {
+    imageZoom = Math.min(3, Math.round((imageZoom + 0.25) * 100) / 100);
+    applyImageZoom();
+});
+document.getElementById("imageZoomOut").addEventListener("click", () => {
+    imageZoom = Math.max(1, Math.round((imageZoom - 0.25) * 100) / 100);
+    applyImageZoom();
+});
+document.getElementById("imageZoomReset").addEventListener("click", () => {
+    imageZoom = 1;
+    applyImageZoom();
+});
+
+
 const modalGallery = document.getElementById("modalGallery");
 
 const galleryCounter = document.getElementById("galleryCounter");
@@ -2189,6 +2260,8 @@ function selectProjectImage(index) {
 
     currentImageIndex = index;
 
+    imageZoom = 1;
+    applyImageZoom();
     modalMainImg.src = currentProjectImages[index];
 
     modalMainImg.alt =
