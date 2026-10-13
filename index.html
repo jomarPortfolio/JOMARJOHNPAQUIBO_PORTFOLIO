@@ -531,6 +531,45 @@ main {
 
 .skill-card,
 
+
+/* STRONG SKILLS THEME FIX — keep the existing grid and skill content unchanged */
+.skills-container .skill-card {
+    background: linear-gradient(145deg, #081a31 0%, #06101f 100%);
+    border: 1px solid rgba(34, 230, 255, .58);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, .22), inset 0 1px 0 rgba(255, 255, 255, .07);
+}
+.skills-container .skill-card h3 {
+    color: var(--accent) !important;
+    text-shadow: 0 0 12px rgba(255, 209, 102, .14);
+}
+.skills-container .skill-card .skill-percent {
+    color: var(--accent-data) !important;
+}
+.skills-container .skill-card .skill-progress {
+    background: #142b43;
+    border: 1px solid rgba(34, 230, 255, .18);
+}
+.skills-container .skill-card .skill-progress-fill {
+    background: linear-gradient(90deg, #ffd166 0%, #22e6ff 100%) !important;
+    box-shadow: 0 0 12px rgba(34, 230, 255, .3);
+}
+.skills-container .skill-card:hover {
+    border-color: #22e6ff;
+    box-shadow: 0 0 26px rgba(34, 230, 255, .22), 0 14px 30px rgba(0, 0, 0, .2);
+}
+body.light-mode .skills-container .skill-card {
+    background: linear-gradient(145deg, #ffffff 0%, #eaf5fc 100%);
+    border-color: rgba(0, 172, 193, .45);
+    box-shadow: 0 8px 24px rgba(5, 16, 30, .09);
+}
+body.light-mode .skills-container .skill-card h3 {
+    color: #075985 !important;
+    text-shadow: none;
+}
+body.light-mode .skills-container .skill-card .skill-progress {
+    background: #d6e6f1;
+}
+
 .project-card {
 
     background: var(--card);
