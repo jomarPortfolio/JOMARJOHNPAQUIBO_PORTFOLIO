@@ -1736,11 +1736,224 @@ var(--accent-data);
 
 }
 
+
+
+/* ADDITIVE ENTRANCE OPENING — existing portfolio UI remains underneath */
+#portfolio-entrance {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 24px;
+    color: #f3f4f6;
+    background: rgba(3, 7, 18, .97);
+    isolation: isolate;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .75s ease, visibility .75s ease;
+}
+#portfolio-entrance.is-leaving {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+#entrance-matrix-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: .52;
+    pointer-events: none;
+}
+#portfolio-entrance::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at center, rgba(3,7,18,.35), rgba(3,7,18,.91));
+    pointer-events: none;
+}
+.entrance-stage {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(18px) scale(.985);
+    transition: opacity .65s ease, transform .65s ease, visibility .65s ease;
+}
+.entrance-stage.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+.entrance-rings {
+    position: absolute;
+    width: min(82vw, 520px);
+    aspect-ratio: 1;
+    border: 2px solid rgba(34,197,94,.48);
+    border-radius: 30%;
+    animation: entranceRingPulse 2.6s ease-out infinite;
+    pointer-events: none;
+}
+.entrance-rings::before, .entrance-rings::after {
+    content: "";
+    position: absolute;
+    inset: 12%;
+    border: 2px solid rgba(245,158,11,.45);
+    border-radius: 30%;
+    animation: entranceRingPulse 2.6s ease-out .45s infinite;
+}
+.entrance-rings::after {
+    inset: 25%;
+    border-color: rgba(34,197,94,.55);
+    animation-delay: .9s;
+}
+@keyframes entranceRingPulse {
+    0% { transform: scale(.58) rotate(0deg); opacity: .8; }
+    100% { transform: scale(1.18) rotate(24deg); opacity: 0; }
+}
+.entrance-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: min(100%, 620px);
+}
+.entrance-title {
+    font-size: clamp(1.45rem, 5vw, 3.25rem);
+    line-height: 1.15;
+    font-weight: 900;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(120deg, #fff, #22c55e, #4ade80, #fff);
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: entranceShimmer 4s linear infinite;
+}
+@keyframes entranceShimmer { to { background-position: 250% center; } }
+.entrance-photo {
+    display: block;
+    width: clamp(125px, 27vw, 190px);
+    height: clamp(125px, 27vw, 190px);
+    object-fit: cover;
+    border: 3px solid #22c55e;
+    border-radius: 20px;
+    box-shadow: 0 0 28px rgba(34,197,94,.35);
+    animation: entrancePhotoPop .75s cubic-bezier(.175,.885,.32,1.275) both;
+}
+@keyframes entrancePhotoPop {
+    from { transform: scale(.72) translateY(18px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+.entrance-card {
+    width: min(100%, 470px);
+    padding: clamp(24px, 5vw, 38px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid rgba(34,197,94,.42);
+    border-radius: 20px;
+    background: rgba(3,7,18,.84);
+    box-shadow: 0 20px 50px rgba(0,0,0,.48), 0 0 28px rgba(34,197,94,.09);
+    backdrop-filter: blur(12px);
+}
+.entrance-card h2 {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+    line-height: 1.12;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(90deg, #fff, #22c55e, #4ade80, #fff);
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: entranceShimmer 5s linear infinite;
+}
+.entrance-card p {
+    color: #a0b3c5;
+    font-size: .98rem;
+    line-height: 1.6;
+}
+#entrance-enter-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 7px;
+    padding: 13px 25px;
+    border: 1px solid rgba(74,222,128,.55);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #22c55e, #15803d);
+    color: #03110a;
+    font: inherit;
+    font-size: .95rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(34,197,94,.28);
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+#entrance-enter-button:hover { transform: translateY(-2px); box-shadow: 0 0 26px rgba(34,197,94,.48); filter: brightness(1.08); }
+#entrance-enter-button:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+@media (max-width: 600px) {
+    #portfolio-entrance { padding: 16px; }
+    .entrance-stage { padding: 18px; }
+    .entrance-rings { width: 95vw; }
+    .entrance-card { gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #portfolio-entrance, .entrance-stage, .entrance-rings,
+    .entrance-rings::before, .entrance-rings::after,
+    .entrance-title, .entrance-photo, .entrance-card h2,
+    #entrance-enter-button { animation: none !important; transition-duration: .01ms !important; }
+}
+
 </style>
 
 </head>
 
 <body>
+
+<!-- Entrance overlay added without replacing the existing portfolio sections -->
+<div id="portfolio-entrance" role="dialog" aria-modal="true" aria-label="Portfolio entrance">
+  <canvas id="entrance-matrix-canvas" aria-hidden="true"></canvas>
+  <section id="entrance-welcome-stage" class="entrance-stage is-active">
+    <div class="entrance-rings" aria-hidden="true"></div>
+    <div class="entrance-content">
+      <h1 class="entrance-title">WELCOME TO MY PORTFOLIO</h1>
+      <img class="entrance-photo" src="https://uploads.onecompiler.io/453gnps9e/1791882244725/1000014717.jpg" alt="Jomar John M. Paquibo">
+      <p style="color:#a0b3c5;letter-spacing:.14em;font-size:.78rem;text-transform:uppercase">Preparing your experience…</p>
+    </div>
+  </section>
+  <section id="entrance-main-stage" class="entrance-stage" aria-label="Enter portfolio">
+    <div class="entrance-rings" aria-hidden="true"></div>
+    <div class="entrance-content">
+      <img class="entrance-photo" src="https://uploads.onecompiler.io/453gnps9e/1791877211143/1000014713.jpg" alt="Jomar John M. Paquibo">
+      <div class="entrance-card">
+        <h2>JOMAR JOHN PAQUIBO</h2>
+        <p>Computer Engineering &amp; Full-Stack Developer</p>
+        <button type="button" id="entrance-enter-button">ENTER SYSTEM <span aria-hidden="true">➔</span></button>
+      </div>
+    </div>
+  </section>
+</div>
+
 
 <div id="motionProgress" aria-hidden="true"></div>
 
@@ -2902,6 +3115,82 @@ if (initialTarget && initialTarget.classList.contains("page")) {
       showPage("home", false);
 
 }
+
+
+
+/* Entrance opening animation — keeps the original portfolio UI intact. */
+(() => {
+    const overlay = document.getElementById("portfolio-entrance");
+    const welcomeStage = document.getElementById("entrance-welcome-stage");
+    const mainStage = document.getElementById("entrance-main-stage");
+    const enterButton = document.getElementById("entrance-enter-button");
+    const canvas = document.getElementById("entrance-matrix-canvas");
+    if (!overlay || !welcomeStage || !mainStage || !enterButton || !canvas) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const context = canvas.getContext("2d");
+    const symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*+-<>~";
+    const fontSize = 16;
+    let drops = [];
+    let animationFrame = 0;
+    let lastDraw = 0;
+    let closed = false;
+
+    function resizeEntranceCanvas() {
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.floor(window.innerWidth * ratio);
+        canvas.height = Math.floor(window.innerHeight * ratio);
+        canvas.style.width = window.innerWidth + "px";
+        canvas.style.height = window.innerHeight + "px";
+        context.setTransform(ratio, 0, 0, ratio, 0, 0);
+        drops = Array.from({ length: Math.ceil(window.innerWidth / fontSize) }, () => Math.random() * -35);
+    }
+
+    function drawEntranceMatrix(timestamp) {
+        if (closed) return;
+        if (timestamp - lastDraw > 38) {
+            lastDraw = timestamp;
+            context.fillStyle = "rgba(3, 7, 18, 0.12)";
+            context.fillRect(0, 0, window.innerWidth, window.innerHeight);
+            context.fillStyle = "#22c55e";
+            context.font = fontSize + "px monospace";
+            for (let i = 0; i < drops.length; i++) {
+                const character = symbols.charAt(Math.floor(Math.random() * symbols.length));
+                context.fillText(character, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > window.innerHeight && Math.random() > 0.975) drops[i] = 0;
+                drops[i] += 0.7;
+            }
+        }
+        animationFrame = window.requestAnimationFrame(drawEntranceMatrix);
+    }
+
+    function closeEntrance() {
+        if (closed) return;
+        closed = true;
+        window.cancelAnimationFrame(animationFrame);
+        overlay.classList.add("is-leaving");
+        window.setTimeout(() => {
+            overlay.remove();
+            document.body.style.overflow = "";
+        }, reducedMotion ? 20 : 780);
+    }
+
+    resizeEntranceCanvas();
+    if (!reducedMotion) animationFrame = window.requestAnimationFrame(drawEntranceMatrix);
+    window.addEventListener("resize", resizeEntranceCanvas, { passive: true });
+    document.body.style.overflow = "hidden";
+
+    window.setTimeout(() => {
+        if (closed) return;
+        welcomeStage.classList.remove("is-active");
+        mainStage.classList.add("is-active");
+    }, reducedMotion ? 300 : 3000);
+
+    enterButton.addEventListener("click", closeEntrance);
+    window.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !closed) closeEntrance();
+    });
+})();
 
 </script>
 
