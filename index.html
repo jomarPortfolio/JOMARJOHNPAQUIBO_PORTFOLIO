@@ -1170,6 +1170,61 @@ footer {
 
 }
 
+/* END-OF-JOURNEY footer styling — isolated to the footer */
+footer.journey-footer {
+    min-height: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(48px, 7vw, 90px);
+    padding: clamp(45px, 7vw, 90px) 20px;
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,.08);
+    background: radial-gradient(ellipse at 50% 70%, rgba(95,48,180,.12), transparent 55%), linear-gradient(145deg,#080511,#070510 55%,#090614);
+    color: #fff;
+}
+
+.journey-footer .journey-label {
+    width: min(100%, 1100px);
+    padding: 20px clamp(12px, 3vw, 38px);
+    border: 2px solid rgba(190,184,215,.25);
+    border-radius: 100px;
+    background: rgba(255,255,255,.035);
+    color: #c9c5d4;
+    font-size: clamp(12px, 2.5vw, 36px);
+    font-weight: 400;
+    letter-spacing: clamp(3px, .9vw, 13px);
+    line-height: 1.5;
+    text-align: center;
+    overflow-wrap: anywhere;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.journey-footer .journey-message {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(48px, 10.5vw, 132px);
+    font-weight: 850;
+    letter-spacing: -.055em;
+    line-height: 1.05;
+    text-align: center;
+}
+
+.journey-footer .journey-message span {
+    display: inline-block;
+    padding-bottom: .05em;
+    background: linear-gradient(100deg, #7967ff 0%, #c17cf4 48%, #7189ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+body.light-mode footer.journey-footer {
+    background: radial-gradient(ellipse at 50% 70%, rgba(121,103,255,.14), transparent 55%), linear-gradient(145deg,#14101f,#0c0917 55%,#151022);
+    color: #fff;
+}
+
 /* Responsive layout */
 
 @media (max-width: 1050px) {
@@ -1205,6 +1260,22 @@ footer {
 }
 
 @media (max-width: 700px) {
+
+    footer.journey-footer {
+        min-height: 350px;
+        gap: 48px;
+        padding: 42px 16px;
+    }
+
+    footer.journey-footer .journey-label {
+        letter-spacing: 3px;
+        border-radius: 40px;
+        padding: 14px 10px;
+    }
+
+    footer.journey-footer .journey-message {
+        font-size: clamp(48px, 12vw, 82px);
+    }
 
     .contact-container {
         grid-template-columns: 1fr;
@@ -1920,9 +1991,10 @@ style="width:80%"></div></div>
 
 </main>
 
-<footer>
+<footer class="journey-footer" aria-label="End of the journey">
 
-  <p>THANK YOU FOR VISITING</p>
+  <div class="journey-label">// END OF THE JOURNEY</div>
+  <p class="journey-message">Thanks for<br><span>Visiting!</span></p>
 
 </footer>
 
