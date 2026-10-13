@@ -1924,6 +1924,31 @@ var(--accent-data);
     #entrance-enter-button { animation: none !important; transition-duration: .01ms !important; }
 }
 
+
+
+/* Additive background Matrix effect inspired by the supplied video.
+   Canvas sits behind the original UI and never intercepts clicks. */
+#portfolio-matrix-effect {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .27;
+    pointer-events: none;
+    contain: strict;
+}
+main, footer {
+    position: relative;
+    z-index: 1;
+}
+@media (max-width: 600px) {
+    #portfolio-matrix-effect { opacity: .20; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #portfolio-matrix-effect { display: none; }
+}
+
 </style>
 
 </head>
@@ -1954,6 +1979,8 @@ var(--accent-data);
   </section>
 </div>
 
+
+<canvas id="portfolio-matrix-effect" aria-hidden="true"></canvas>
 
 <div id="motionProgress" aria-hidden="true"></div>
 
@@ -3190,6 +3217,82 @@ if (initialTarget && initialTarget.classList.contains("page")) {
     window.addEventListener("keydown", event => {
         if (event.key === "Escape" && !closed) closeEntrance();
     });
+})();
+
+
+
+/* Background code-rain effect: decorative only; existing UI and controls are untouched. */
+(() => {
+    const canvas = document.getElementById("portfolio-matrix-effect");
+    if (!canvas) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) return;
+
+    const ctx = canvas.getContext("2d", { alpha: true });
+    if (!ctx) return;
+
+    const glyphs = "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 13;
+    let columns = [];
+    let width = 0;
+    let height = 0;
+    let raf = 0;
+    let lastFrame = 0;
+    let isVisible = true;
+
+    function resize() {
+        const ratio = Math.min(window.devicePixelRatio || 1, 1.35);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.max(1, Math.floor(width * ratio));
+        canvas.height = Math.max(1, Math.floor(height * ratio));
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        columns = Array.from(
+            { length: Math.ceil(width / fontSize) },
+            () => Math.random() * (height / fontSize)
+        );
+        ctx.clearRect(0, 0, width, height);
+    }
+
+    function draw(time) {
+        raf = 0;
+        if (!isVisible || document.hidden) return;
+        if (time - lastFrame < 42) {
+            raf = window.requestAnimationFrame(draw);
+            return;
+        }
+        lastFrame = time;
+
+        ctx.fillStyle = "rgba(3, 9, 18, 0.10)";
+        ctx.fillRect(0, 0, width, height);
+        ctx.font = fontSize + "px monospace";
+        for (let i = 0; i < columns.length; i++) {
+            const y = columns[i] * fontSize;
+            const character = glyphs.charAt(Math.floor(Math.random() * glyphs.length));
+            ctx.fillStyle = Math.random() > 0.965 ? "#b7ffca" : "#22c55e";
+            ctx.globalAlpha = Math.random() > 0.90 ? 0.9 : 0.48;
+            ctx.fillText(character, i * fontSize, y);
+            ctx.globalAlpha = 1;
+            if (y > height && Math.random() > 0.975) columns[i] = -Math.random() * 20;
+            else columns[i] += Math.random() > 0.985 ? 1.8 : 0.65;
+        }
+        raf = window.requestAnimationFrame(draw);
+    }
+
+    function start() {
+        if (isVisible && !document.hidden && !raf) raf = window.requestAnimationFrame(draw);
+    }
+    function stop() {
+        if (raf) window.cancelAnimationFrame(raf);
+        raf = 0;
+    }
+
+    resize();
+    start();
+    window.addEventListener("resize", resize, { passive: true });
+    document.addEventListener("visibilitychange", () => document.hidden ? stop() : start());
+    window.addEventListener("pagehide", () => { isVisible = false; stop(); }, { once: true });
 })();
 
 </script>
